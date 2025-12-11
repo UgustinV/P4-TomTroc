@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --backgroundLight: #faf9f7;
+    --defaultBackground: #f5f3ef;
+    --buttonGreen: #00ac66;
+    --darkGreenButton: #006d41;
+    --greyText: #a6a6a6;
+    --darkGrey: #292929;
+    --notAvailableRed: #c56d6d;
+    --availableGreen: #6dc5a1;
+}
+
+body {
+    font-family: 'Playfair Display', serif;
+    background-color: var(--defaultBackground);
+    color: var(--darkGrey);
+}
+
+p {
+    font-family: 'Inter', sans-serif;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    padding: 0 150px;
+    font-size: 17px;
+}
+
+nav > div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+nav > #account-manager {
+    gap: 58px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--darkGrey);
+}
+
+#browse {
+    gap: 42px;
+}
+
+#browse a:first-child {
+    margin-right: 36px;
+}
+
+#browse img {
+    height: 51px;
+}
+
+footer {
+    background-color: var(--backgroundLight);
+    height: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    align-items: center;
+    padding-right: 46px;
+    gap: 40px;
+    font-size: 12px;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--darkGrey);
+}

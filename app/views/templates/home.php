@@ -4,18 +4,20 @@
             <p>
                 Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.
             </p>
-            <a href="">Découvrir</a>
+            <a href="/P4-TomTroc/public/books">Découvrir</a>
         </div>
         <div>
-            <img src="" alt="">
+            <img src="/P4-TomTroc/public/images/hamza-nouasria.png" alt="Image de Hamza Nouasria">
             <p>Hamza</p>
         </div>
 </section>
+<section id="latestBooks">
     <h2>Les derniers livres ajoutés</h2>
     <?php
         // Ici on pourrait faire une boucle pour afficher les derniers livres ajoutés au site.
     ?>
-    <a href="">Voir tous les livres</a>
+    <a href="/P4-TomTroc/public/books">Voir tous les livres</a>
+</section>
 <section>
     <div>
         <h3>Comment ça marche ?</h3>
@@ -28,7 +30,7 @@
         <div>Proposez un échange et discutez avec d'autres passionnés de lecture.</div>
     </div>
 </section>
-<img src="" alt="">
+<img src="/P4-TomTroc/public/images/home_desktop_banner.png" alt="">
 <section>
     <h4>Nos Valeurs</h4>
     <div>
@@ -44,6 +46,6 @@
     </div>
     <div>
         <p>L’équipe Tom Troc</p>
-        <img src="" alt="">
+        <img src="/P4-TomTroc/public/images/logo_coeur.svg" alt="Logo Coeur">
     </div>
 </section>

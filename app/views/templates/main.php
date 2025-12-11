@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TomTroc</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="/P4-TomTroc/public/css/main.css">
 </head>
 
 <body>
     <header>
         <nav>
             <div id="browse">
-                <a href="index.php">
-                    <img src="./images/logo.png" alt="Logo de TomTroc" />
+                <a href="/P4-TomTroc/public/">
+                    <img src="/P4-TomTroc/public/images/nav_logo.svg" alt="Logo de navigation TomTroc" />
                 </a>
-                <a href="index.php">Accueil</a>
-                <a href="index.php?action=apropos">Nos livres à l'échange</a>
+                <a href="/P4-TomTroc/public/">Accueil</a>
+                <a href="/P4-TomTroc/public/books">Nos livres à l'échange</a>
             </div>
             <div id="account-manager">
                 <?php 
@@ -24,7 +24,7 @@
                         echo '<a href="index.php?action=contact">Messagerie</a><a href="index.php?action=faq">Mon Compte</a><a href="index.php?action=disconnectUser">Déconnexion</a>';
                     }
                     else {
-                        echo '<a href="index.php?action=login">Connexion</a>';
+                        echo '<a href="/P4-TomTroc/public/login">Connexion</a>';
                     }
                 ?>
             </div>
@@ -35,9 +35,10 @@
     </main>
     
     <footer>
-        <a href="">Politique de confidentialité</a>
-        <a href="">Mentions légales</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Mentions légales</a>
         <div>Tom Troc©</div>
+        <img src="/P4-TomTroc/public/images/logo.svg" alt="Logo de TomTroc">
     </footer>
 
 </body>

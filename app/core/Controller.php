@@ -30,6 +30,7 @@ class Controller
             require_once '../app/views/templates' . $viewName . '.php';
             return ob_get_clean();
         } else {
+            // TODO : PAGE 404
             throw new Exception("La vue '$viewName' est introuvable.");
         }
     }
