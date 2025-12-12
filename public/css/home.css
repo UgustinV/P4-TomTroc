@@ -215,7 +215,7 @@ section {
     left: 200px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     section {
         padding: 50px 20px;
     }
@@ -243,6 +243,11 @@ section {
 
     #catchphrase div:last-child p {
         padding-right: 26px;
+    }
+
+    #catchphrase div:last-child img {
+        width: 100%;
+        object-fit: contain;
     }
 
     #latestBooks h2 {
