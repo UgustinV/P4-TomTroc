@@ -16,7 +16,7 @@ class Controller
     public function view($viewName, $data = [])
     {
         $content = $this->render($viewName, $data);
-        $title = 'TomTroc - ' . $viewName;
+        $title = 'TomTroc - ' . ucfirst($viewName);
         ob_start();
         require(MAIN_VIEW_PATH);
         $template = ob_get_clean();
@@ -25,9 +25,9 @@ class Controller
 
     public function render($viewName, $data = []) : string
     {
-        if(file_exists('../app/views/templates' . $viewName . '.php')){
+        if(file_exists('../app/views/templates/' . $viewName . '.php')){
             ob_start();
-            require_once '../app/views/templates' . $viewName . '.php';
+            require_once '../app/views/templates/' . $viewName . '.php';
             return ob_get_clean();
         } else {
             // TODO : PAGE 404

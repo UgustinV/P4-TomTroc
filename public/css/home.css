@@ -1,0 +1,208 @@
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0;
+}
+
+#catchphrase {
+    flex-direction: row;
+    gap: 115px;
+    justify-content: center;
+}
+
+#catchphrase div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 53px;
+    width: 329px;
+}
+
+#catchphrase div:first-child h1 {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+#catchphrase div:first-child p, #catchphrase div:first-child a {
+    font-size: 16px;
+}
+
+.button {
+    width: fit-content;
+    height: fit-content;
+    padding: 22px 38px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.green-button {
+    background-color: var(--buttonGreen);
+    color: white;
+}
+
+.transparent-button {
+    border: 2px solid var(--buttonGreen);
+    color: var(--buttonGreen);
+}
+
+.button:hover {
+    background-color: var(--darkGreenButton);
+    border-color: transparent;
+    color: white;
+}
+
+#catchphrase div:last-child p {
+    width: 100%;
+    text-align: end;
+    padding-top: 12px;
+    padding-right: 3px;
+    font-size: 12px;
+    color: var(--greyText);
+    font-style: italic;
+}
+
+#latestBooks {
+    background-color: var(--backgroundLight);
+}
+
+#latestBooks h2 {
+    font-size: 32px;
+    margin-bottom: 80px;
+}
+
+#bookCardsWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 38px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+}
+
+.bookCard {
+    width: 200px;
+    border-radius: 0 0 10px 10px;
+    background-color: white;
+}
+
+.bookImageContainer {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.bookImageContainer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.bookDescription {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    padding: 23px 0 23px 14px;
+    overflow: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+.bookCard h3 {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.bookCard h4 {
+    font-size: 14px;
+    font-weight: normal;
+    color: var(--greyText);
+}
+
+.bookCard p {
+    font-size: 10px;
+    color: var(--greyText);
+    font-style: italic;
+}
+
+#how-to {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+#how-to div:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+#how-to h3 {
+    font-size: 32px;
+}
+
+#how-to p {
+    font-size: 16px;
+    max-width: 400px;
+    text-align: center;
+}
+
+#step-cards-container {
+    display: flex;
+    flex-direction: row;
+    gap: 36px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.step-card {
+    width: 215px;
+    padding: 44px 25px;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: white;
+    text-align: center;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+#homeBanner {
+    width: 100%;
+}
+
+#team-message div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    gap: 40px;
+}
+
+#team-message div * {
+    width: 100%;
+}
+
+#team-message h4 {
+    font-size: 32px;
+}
+
+#team-message div p {
+    font-size: 16px;
+}
+
+#team-message div p:last-child {
+    font-size: 12px;
+    color: var(--greyText);
+    font-style: italic;
+}
+
+#team-message img {
+    position: relative;
+    bottom: 20px;
+    left: 200px;
+}

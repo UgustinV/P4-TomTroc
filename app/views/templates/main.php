@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TomTroc</title>
+    <?= isset($title) ? "<title>$title</title>" : '<title>TomTroc</title>' ?>
     <link rel="stylesheet" href="/P4-TomTroc/public/css/main.css">
+    <?= $title == 'TomTroc - Home' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/home.css">' : '' ?>
 </head>
 
 <body>
