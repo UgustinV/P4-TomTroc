@@ -73,7 +73,10 @@
     </div>
     <a class="button transparent-button" href="/P4-TomTroc/public/register">Voir tous les livres</a>
 </section>
-<img id="homeBanner" src="/P4-TomTroc/public/images/home_desktop_banner.png" alt="Bannière accueil">
+<div id="home-banner">
+    <img src="/P4-TomTroc/public/images/home_desktop_banner.png" alt="Bannière accueil">
+    <img src="/P4-TomTroc/public/images/home_mobile_banner.png" alt="Bannière accueil mobile">
+</div>
 <section id="team-message">
     <div>
         <h4>Nos Valeurs</h4>

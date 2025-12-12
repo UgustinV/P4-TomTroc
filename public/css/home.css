@@ -112,12 +112,12 @@ section {
 }
 
 .bookCard h3 {
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 500;
 }
 
 .bookCard h4 {
-    font-size: 14px;
+    font-size: 17px;
     font-weight: normal;
     color: var(--greyText);
 }
@@ -129,9 +129,6 @@ section {
 }
 
 #how-to {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: 40px;
 }
 
@@ -171,8 +168,19 @@ section {
     font-family: 'Inter', sans-serif;
 }
 
-#homeBanner {
+#home-banner {
     width: 100%;
+    overflow: hidden;
+}
+
+#home-banner img:last-child {
+    display: none;
+}
+
+#home-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 #team-message div {
@@ -205,4 +213,117 @@ section {
     position: relative;
     bottom: 20px;
     left: 200px;
+}
+
+@media (max-width: 900px) {
+    section {
+        padding: 50px 20px;
+    }
+
+    #catchphrase {
+        flex-direction: column-reverse;
+        gap: 32px;
+        padding: 0;
+        justify-content: center;
+    }
+
+    #catchphrase div:first-child {
+        gap: 16px;
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    #catchphrase div:first-child h1 {
+        font-size: 30px;
+    }
+
+    #catchphrase div:last-child, .button {
+        width: 100%;
+    }
+
+    #catchphrase div:last-child p {
+        padding-right: 26px;
+    }
+
+    #latestBooks h2 {
+        font-size: 28px;
+        margin-bottom: 34px;
+    }
+
+    #latestBooks > a {
+        display: none;
+    }
+
+    #bookCardsWrapper {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 0;
+        width: 100%;
+        gap: 15px;
+    }
+
+    .bookCard {
+        width: 100%;
+    }
+
+    .bookImageContainer {
+        height: unset;
+        aspect-ratio: 1;
+    }
+
+    .bookCard h3 {
+        font-size: 16px;
+    }
+
+    .bookCard h4 {
+        font-size: 13px;
+    }
+
+    .bookCard p {
+        font-size: 8px;
+    }
+
+    #how-to h3 {
+        font-size: 28px;
+    }
+
+    #how-to p {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    #step-cards-container {
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .step-card {
+        width: 100%;
+    }
+
+    #home-banner img:first-child {
+        display: none;
+    }
+
+    #home-banner img:last-child {
+        display: block;
+    }
+
+    #team-message div {
+        width: 100%;
+        gap: 40px;
+    }
+
+    #team-message h4 {
+        font-size: 28px;
+    }
+
+    #team-message div p {
+        font-size: 14px;
+    }
+
+    #team-message img {
+        position: static;
+        margin-top: 62px;
+    }
 }
