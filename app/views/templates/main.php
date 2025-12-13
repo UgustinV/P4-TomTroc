@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= isset($title) ? "<title>$title</title>" : '<title>TomTroc</title>' ?>
     <link rel="stylesheet" href="/P4-TomTroc/public/css/main.css">
-    <?= $title == 'TomTroc - Home' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/home.css">' : '' ?>
+    <?= $title == 'TomTroc - Home' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/home.css">' : ($title == 'TomTroc - Login' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/login.css">' : '') ?>
 </head>
 
 <body>
