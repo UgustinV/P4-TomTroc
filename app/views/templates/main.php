@@ -37,7 +37,7 @@
                         else {
                             echo '<li><a href="/P4-TomTroc/public/login">Connexion</a></li>';
                         }
-                        ?>
+                    ?>
                 </ul>
             </div>
             <div id="account-manager">

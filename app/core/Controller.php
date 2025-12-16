@@ -26,6 +26,7 @@ class Controller
     public function render($viewName, $data = []) : string
     {
         if(file_exists('../app/views/templates/' . $viewName . '.php')){
+            extract($data);
             ob_start();
             require_once '../app/views/templates/' . $viewName . '.php';
             return ob_get_clean();

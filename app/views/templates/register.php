@@ -1,20 +1,27 @@
 <div id="login-page">
     <div id="login-form">
-        <h1>Connexion</h1>
-        <form action="POST">
+        <h1>Inscription</h1>
+        <?php if (isset($errors) && !empty($errors)): ?>
+            <div class="errors">
+                <?php foreach ($errors as $error): ?>
+                    <p><?= htmlspecialchars($error) ?></p>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
+        <form action="/P4-TomTroc/public/register" method="POST">
             <div>
-                <label for="pseudo">Pseudo</label>
-                <input type="text" id="pseudo" name="pseudo" required>
+                <label for="nickname">Pseudo</label>
+                <input type="text" id="nickname" name="nickname" required>
             </div>
             <div>
                 <label for="email">Adresse email</label>
-                <input type="text" id="email" name="email" required>
+                <input type="email" id="email" name="email" required>
             </div>
             <div>
                 <label for="password">Mot de passe</label>
                 <input type="password" id="password" name="password" required>
             </div>
-            <button type="submit">Se connecter</button>
+            <button type="submit">S'inscrire</button>
         </form>
         <div>
             <span>Déjà inscrit ?</span><a href="/P4-TomTroc/public/login"> Connectez-vous</a>

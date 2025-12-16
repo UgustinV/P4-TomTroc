@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     gap: 40px;
-    width: 322px;
+    width: 40%;
     margin-left: 150px;
     margin-top: 130px;
 }
@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     gap: 32px;
+    width: 60%;
 }
 
 #login-form form div {
