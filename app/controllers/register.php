@@ -32,8 +32,8 @@ class Register extends Controller
         }
 
         if (empty($errors)) {
-            $userModel = new User();
-            
+            $userModel = new UserManager();
+
             if ($userModel->emailExists($email)) {
                 $errors[] = "Cette adresse email est déjà utilisée";
             }
@@ -49,12 +49,12 @@ class Register extends Controller
                     $errors[] = "Erreur lors de l'inscription. Veuillez réessayer.";
                 }
             }
-            $this->view('register', [
-                'errors' => $errors,
-                'nickname' => $nickname,
-                'email' => $email
-            ]);
         }
+        $this->view('register', [
+            'errors' => $errors,
+            'nickname' => $nickname,
+            'email' => $email
+        ]);
 
     }
 }

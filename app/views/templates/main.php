@@ -32,7 +32,7 @@
                     </li>
                     <?php 
                         if (isset($_SESSION['user'])) {
-                            echo '<li><a href="index.php?action=contact">Messagerie</a></li><li><a href="index.php?action=faq">Mon Compte</a></li><li><a href="index.php?action=disconnectUser">Déconnexion</a></li>';
+                            echo '<li><a href="/P4-TomTroc/public/tchat">Messagerie</a></li><li><a href="/P4-TomTroc/public/account">Mon Compte</a></li><li><a href="/P4-TomTroc/public/logout">Déconnexion</a></li>';
                         }
                         else {
                             echo '<li><a href="/P4-TomTroc/public/login">Connexion</a></li>';
@@ -43,7 +43,7 @@
             <div id="account-manager">
                 <?php 
                     if (isset($_SESSION['user'])) {
-                        echo '<a href="index.php?action=contact">Messagerie</a><a href="index.php?action=faq">Mon Compte</a><a href="index.php?action=disconnectUser">Déconnexion</a>';
+                        echo '<a href="/P4-TomTroc/public/tchat">Messagerie</a><a href="/P4-TomTroc/public/account">Mon Compte</a><a href="/P4-TomTroc/public/logout">Déconnexion</a>';
                     }
                     else {
                         echo '<a href="/P4-TomTroc/public/login">Connexion</a>';

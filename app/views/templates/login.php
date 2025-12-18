@@ -1,10 +1,10 @@
 <div id="login-page">
     <div id="login-form">
         <h1>Connexion</h1>
-        <form action="POST">
+        <form action="/P4-TomTroc/public/login" method="POST">
             <div>
                 <label for="email">Adresse email</label>
-                <input type="text" id="email" name="email" required>
+                <input type="email" id="email" name="email" required>
             </div>
             <div>
                 <label for="password">Mot de passe</label>

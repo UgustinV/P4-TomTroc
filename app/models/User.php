@@ -45,39 +45,4 @@ class User extends AbstractEntity
     {
         return $this->password;
     }
-
-    public function create($nickname, $email, $password)
-    {
-        try {
-            $nickname = htmlspecialchars($nickname);
-            $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-            $password = htmlspecialchars($password);
-
-            $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-            
-            $query = "INSERT INTO user (nickname, email, password) VALUES (?, ?, ?)";
-            $stmt = $this->db->prepare($query);
-            
-            return $stmt->execute([$nickname, $email, $hashedPassword]);
-        } catch (PDOException $e) {
-            error_log("Registration error: " . $e->getMessage());
-            return false;
-        }
-    }
-
-    public function emailExists($email)
-    {
-        $query = "SELECT id FROM user WHERE email = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute([$email]);
-        return $stmt->fetch() !== false;
-    }
-
-    public function nicknameExists($nickname)
-    {
-        $query = "SELECT id FROM user WHERE nickname = ?";
-        $stmt = $this->db->prepare($query);
-        $stmt->execute([$nickname]);
-        return $stmt->fetch() !== false;
-    }
 }
