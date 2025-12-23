@@ -2,6 +2,13 @@
     <div id="login-form">
         <h1>Connexion</h1>
         <form action="/P4-TomTroc/public/login" method="POST">
+            <?php if (isset($errors) && !empty($errors)): ?>
+                <div class="errors">
+                    <?php foreach ($errors as $error): ?>
+                        <p><?= htmlspecialchars($error) ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <div>
                 <label for="email">Adresse email</label>
                 <input type="email" id="email" name="email" required>

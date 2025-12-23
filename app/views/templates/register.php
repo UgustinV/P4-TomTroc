@@ -1,14 +1,14 @@
 <div id="login-page">
     <div id="login-form">
         <h1>Inscription</h1>
-        <?php if (isset($errors) && !empty($errors)): ?>
-            <div class="errors">
-                <?php foreach ($errors as $error): ?>
-                    <p><?= htmlspecialchars($error) ?></p>
-                <?php endforeach; ?>
-            </div>
-        <?php endif; ?>
         <form action="/P4-TomTroc/public/register" method="POST">
+            <?php if (isset($errors) && !empty($errors)): ?>
+                <div class="errors">
+                    <?php foreach ($errors as $error): ?>
+                        <p><?= htmlspecialchars($error) ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <div>
                 <label for="nickname">Pseudo</label>
                 <input type="text" id="nickname" name="nickname" required>
