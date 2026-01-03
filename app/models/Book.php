@@ -10,7 +10,6 @@ class Book extends AbstractEntity
     private bool $is_available;
     private string $image;
 
-
     public function setId(int $id): void
     {
         $this->id = $id;

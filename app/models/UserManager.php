@@ -47,4 +47,4 @@ class UserManager extends AbstractEntityManager
             return false;
         }
     }
-} 
+}
