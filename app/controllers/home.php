@@ -4,6 +4,13 @@ class Home extends Controller
 {
     public function index()
     {
-        $this->view('home', []);
+        $latestBooks = $this->getLatestBooks();
+        $this->view('home', ['books' => $latestBooks]);
+    }
+
+    public function getLatestBooks()
+    {
+        $bookModel = new BookManager();
+        return $bookModel->getLatestBooks();
     }
 }

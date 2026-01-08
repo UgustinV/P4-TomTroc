@@ -113,4 +113,17 @@ class BookManager extends AbstractEntityManager
         
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function getLatestBooks(): array
+    {
+        $query = "
+            SELECT b.id, b.title, b.writer, b.user_id, b.image, b.is_available, u.nickname AS user_nickname
+            FROM book b
+            JOIN user u ON b.user_id = u.id
+            ORDER BY b.id DESC
+            LIMIT 4
+        ";
+        $stmt = $this->db->query($query);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

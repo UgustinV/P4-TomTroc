@@ -17,46 +17,18 @@
         // Ici faire une boucle pour afficher les derniers livres ajoutés au site.
     ?>
     <div id="bookCardsWrapper">
-        <div class="bookCard">
-            <div class="bookImageContainer">
-                <img src="/P4-TomTroc/public/images/hamza-nouasria.png" alt="Couverture du livre">
+        <?php foreach ($books as $book): ?>
+            <div class="bookCard">
+                <div class="bookImageContainer">
+                    <img src="<?= $book['image'] ?>" alt="Couverture du livre <?= $book['title'] ?>">
+                </div>
+                <div class="bookDescription">
+                    <h3><?= $book['title'] ?></h3>
+                    <h4><?= $book['writer'] ?></h4>
+                    <p><strong>Vendu par :</strong> <?= $book['user_nickname'] ?></p>
+                </div>
             </div>
-            <div class="bookDescription">
-                <h3>Titre du Livre</h3>
-                <h4>Nom de l'Auteur</h4>
-                <p>Vendu par : nom du vendeur</p>
-            </div>
-        </div>
-        <div class="bookCard">
-            <div class="bookImageContainer">
-                <img src="/P4-TomTroc/public/images/hamza-nouasria.png" alt="Couverture du livre">
-            </div>
-            <div class="bookDescription">
-                <h3>Titre du Livre</h3>
-                <h4>Nom de l'Auteur</h4>
-                <p>Vendu par : nom du vendeur</p>
-            </div>
-        </div>
-        <div class="bookCard">
-            <div class="bookImageContainer">
-                <img src="/P4-TomTroc/public/images/hamza-nouasria.png" alt="Couverture du livre">
-            </div>
-            <div class="bookDescription">
-                <h3>Titre du Livre</h3>
-                <h4>Nom de l'Auteur</h4>
-                <p>Vendu par : nom du vendeur</p>
-            </div>
-        </div>
-        <div class="bookCard">
-            <div class="bookImageContainer">
-                <img src="/P4-TomTroc/public/images/hamza-nouasria.png" alt="Couverture du livre">
-            </div>
-            <div class="bookDescription">
-                <h3>Titre du Livre</h3>
-                <h4>Nom de l'Auteur</h4>
-                <p>Vendu par : nom du vendeur</p>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
     <a class="button green-button" href="/P4-TomTroc/public/books">Voir tous les livres</a>
 </section>
