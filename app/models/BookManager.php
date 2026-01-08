@@ -5,7 +5,7 @@ class BookManager extends AbstractEntityManager
     public function getAllBooksWithOwners(): array
     {
         $query = "
-            SELECT b.id, b.title, b.writer, b.user_id, b.image, u.nickname AS user_nickname
+            SELECT b.id, b.title, b.writer, b.user_id, b.image, b.is_available, u.nickname AS user_nickname
             FROM book b
             JOIN user u ON b.user_id = u.id
         ";
@@ -97,5 +97,20 @@ class BookManager extends AbstractEntityManager
             return new Book($data);
         }
         return null;
+    }
+
+    public function searchBooks($searchTerm)
+    {
+        $searchTerm = htmlspecialchars($searchTerm);
+        $sql = "SELECT b.id, b.title, b.writer, b.user_id, b.image, b.is_available, u.nickname as user_nickname
+                FROM book b
+                JOIN user u ON b.user_id = u.id
+                WHERE b.title LIKE :search
+                OR b.writer LIKE :search
+                OR u.nickname LIKE :search";
+        
+        $stmt = $stmt = $this->db->query($sql, ['search' => '%' . $searchTerm . '%']);
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }
