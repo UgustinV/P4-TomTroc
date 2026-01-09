@@ -17,9 +17,16 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: 'Playfair Display', serif;
     background-color: var(--defaultBackground);
     color: var(--darkGrey);
+}
+
+main {
+    flex: 1;
 }
 
 p, a {
@@ -40,6 +47,10 @@ nav > div {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+
+.focus {
+    font-weight: 600;
 }
 
 nav > input, nav > label {

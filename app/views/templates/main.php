@@ -15,8 +15,8 @@
                 <a href="/P4-TomTroc/public/">
                     <img src="/P4-TomTroc/public/images/nav_logo.svg" alt="Logo de navigation TomTroc" />
                 </a>
-                <a href="/P4-TomTroc/public/">Accueil</a>
-                <a href="/P4-TomTroc/public/books">Nos livres à l'échange</a>
+                <a href="/P4-TomTroc/public/" <?= $title == 'TomTroc - Home' ? 'class="focus"' : '' ?>>Accueil</a>
+                <a href="/P4-TomTroc/public/books" <?= $title == 'TomTroc - Books' ? 'class="focus"' : '' ?>>Nos livres à l'échange</a>
             </div>
             <input type="checkbox" id="menu-toggle" class="menu-toggle">
             <label for="menu-toggle" class="hamburger">
@@ -25,17 +25,17 @@
             <div id="burger-content">
                 <ul>
                     <li>
-                        <a href="/P4-TomTroc/public/">Accueil</a>
+                        <a href="/P4-TomTroc/public/" <?= $title == 'TomTroc - Home' ? 'class="focus"' : '' ?>>Accueil</a>
                     </li>
                     <li>
-                        <a href="/P4-TomTroc/public/books">Nos livres à l'échange</a>
+                        <a href="/P4-TomTroc/public/books" <?= $title == 'TomTroc - Books' ? 'class="focus"' : '' ?>>Nos livres à l'échange</a>
                     </li>
                     <?php 
                         if (isset($_SESSION['user'])) {
-                            echo '<li><a href="/P4-TomTroc/public/tchat">Messagerie</a></li><li><a href="/P4-TomTroc/public/account">Mon Compte</a></li><li><a href="/P4-TomTroc/public/logout">Déconnexion</a></li>';
+                            echo '<li><a href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>Messagerie</a></li><li><a href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>Mon Compte</a></li><li><a href="/P4-TomTroc/public/logout">Déconnexion</a></li>';
                         }
                         else {
-                            echo '<li><a href="/P4-TomTroc/public/login">Connexion</a></li>';
+                            echo '<li><a href="/P4-TomTroc/public/login"' . ($title == 'TomTroc - Login' ? 'class="focus"' : '') . '>Connexion</a></li>';
                         }
                     ?>
                 </ul>
@@ -43,10 +43,10 @@
             <div id="account-manager">
                 <?php 
                     if (isset($_SESSION['user'])) {
-                        echo '<a href="/P4-TomTroc/public/tchat">Messagerie</a><a href="/P4-TomTroc/public/account">Mon Compte</a><a href="/P4-TomTroc/public/logout">Déconnexion</a>';
+                        echo '<a href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>Messagerie</a><a href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>Mon Compte</a><a href="/P4-TomTroc/public/logout">Déconnexion</a>';
                     }
                     else {
-                        echo '<a href="/P4-TomTroc/public/login">Connexion</a>';
+                        echo '<a href="/P4-TomTroc/public/login"' . ($title == 'TomTroc - Login' ? 'class="focus"' : '') . '>Connexion</a>';
                     }
                 ?>
             </div>
