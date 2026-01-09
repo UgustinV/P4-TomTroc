@@ -83,7 +83,7 @@ nav a {
 }
 
 footer {
-    background-color: var(--backgroundLight);
+    background-color: white;
     height: 60px;
     display: flex;
     flex-direction: row;
