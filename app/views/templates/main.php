@@ -5,7 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <?= isset($title) ? "<title>$title</title>" : '<title>TomTroc</title>' ?>
     <link rel="stylesheet" href="/P4-TomTroc/public/css/main.css">
-    <?= $title == 'TomTroc - Home' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/home.css">' : ($title == 'TomTroc - Login' || $title == 'TomTroc - Register' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/login.css">' : ($title == 'TomTroc - Upload' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/upload.css">' : ($title == 'TomTroc - Books' ? '<link rel="stylesheet" href="/P4-TomTroc/public/css/books.css">' : ''))) ?>
+    <?php if ($title == 'TomTroc - Home'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/home.css">
+    <?php elseif ($title == 'TomTroc - Login' || $title == 'TomTroc - Register'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/login.css">
+    <?php elseif ($title == 'TomTroc - Upload'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/upload.css">
+    <?php elseif ($title == 'TomTroc - Books'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/books.css">
+    <?php elseif ($title == 'TomTroc - Account'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/account.css">
+    <?php endif; ?>
 </head>
 
 <body>

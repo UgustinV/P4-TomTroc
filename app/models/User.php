@@ -6,7 +6,8 @@ class User extends AbstractEntity
     private string $nickname;
     private string $email;
     private string $password;
-
+    private ?string $image;
+    private string $created_at;
 
     public function setId(int $id): void
     {
@@ -27,6 +28,16 @@ class User extends AbstractEntity
         $this->password = $password;
     }
 
+    public function setImage(?string $image): void
+    {
+        $this->image = $image;
+    }
+
+    public function setCreationDate(string $creationDate): void
+    {
+        $this->created_at = $creationDate;
+    }
+
     public function getId(): int
     {
         return $this->id;
@@ -44,5 +55,15 @@ class User extends AbstractEntity
     public function getPassword(): string
     {
         return $this->password;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+    
+    public function getCreationDate(): string
+    {
+        return $this->created_at;
     }
 }
