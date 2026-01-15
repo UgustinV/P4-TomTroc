@@ -1,0 +1,244 @@
+#account-page {
+    margin: 90px 150px;
+}
+
+#account-page h1 {
+    font-size: 26px;
+    margin-bottom: 48px;
+    font-weight: 100;
+    font-family: "Playfair", serif;
+}
+
+#user-section {
+    display: flex;
+    flex-direction: row;
+    gap: 33px;
+}
+
+#user-section>div {
+    flex: 1;
+    background-color: white;
+    border-radius: 20px;
+}
+
+#user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#user-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 48px 50px;
+    width: 50%;
+}
+
+#user-image-container img {
+    width: 135px;
+    height: 135px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+#user-image-container label {
+    color: var(--greyText);
+    text-decoration: underline;
+}
+
+#user-image-container label:hover {
+    cursor: pointer;
+}
+
+#user-info h2 {
+    font-size: 24px;
+    font-weight: 400;
+    margin-top: 48px;
+    margin-bottom: 12px;
+}
+
+#user-info>p {
+    font-size: 14px;
+    color: var(--greyText);
+    margin-bottom: 20px;
+}
+
+#user-info>span {
+    font-size: 10px;
+    font-weight: 400;
+}
+
+
+#books-count {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 90px;
+}
+
+#books-count>img {
+    width: 10px;
+}
+
+#books-count>p {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+#profile-edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 12px;
+    padding-bottom: 36px;
+}
+
+#profile-edit-container {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 2px;
+}
+
+#profile-edit-container>h3 {
+    font-size: 16px;
+    font-weight: normal;
+    font-family: 'Inter', sans-serif;
+    margin: 24px 0;
+}
+
+#profile-edit-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.input-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.input-field label {
+    font-size: 14px;
+    color: var(--greyText);
+    font-family: 'Inter', sans-serif;
+}
+
+.input-field input {
+    height: 50px;
+    border: 1px solid var(--lightGrey);
+    border-radius: 6px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--formBackground);
+    color: var(--darkGrey);
+    padding: 0 16px;
+}
+
+#profile-edit-container>form>input {
+    display: none;
+}
+
+#profile-edit-container button {
+    width: fit-content;
+    padding: 22px 32px;
+    background-color: var(--defaultBackground);
+    color: var(--buttonGreen);
+    border: 1px solid var(--buttonGreen);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    margin-top: 24px;
+    cursor: pointer;
+}
+
+#user-books {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 33px;
+}
+
+#user-books>div {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 80px;
+    padding-left: 66px;
+}
+
+#table-header {
+    padding: 35px 0 12px 0;
+    border-bottom: 1px solid #E0E0E0;
+    font-weight: bold;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7vw;
+}
+
+.book-photo>img {
+    width: 7vw;
+    margin: 25px 0;
+}
+
+.book-row {
+    max-height: calc(7vw + 50px);
+}
+
+#user-books>.book-row:nth-child(odd) {
+    background-color: var(--formBackground);
+}
+
+.book-row>div {
+    display: flex;
+    align-items: center;
+}
+
+.book-row>div p, .book-row>div span, .book-row>div a {
+    font-size: 0.9vw;
+    font-family: 'Inter', sans-serif;
+}
+
+.book-row>.book-description p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.book-row>.book-availability>.available {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: var(--availableGreen);
+    color: white;
+}
+
+.book-row>.book-availability>.unavailable {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background-color: var(--notAvailableRed);
+    color: white;
+}
+
+.book-row>.book-action {
+    display: flex;
+    gap: 30px;
+}
+
+.book-row>.book-action>a:first-child {
+    color: black;
+    cursor: pointer;
+}
+
+.book-row>.book-action>a:last-child {
+    color: #CB2D2D;
+    cursor: pointer;
+}
