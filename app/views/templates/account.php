@@ -94,8 +94,8 @@
                     <?php endif; ?>
                 </div>
                 <div class="book-action">
-                    <a href="/P4-TomTroc/public/book/edit/<?= $book["id"] ?>">Éditer</a>
-                    <a href="/P4-TomTroc/public/book/delete/<?= $book["id"] ?>">Supprimer</a>
+                    <a href="/P4-TomTroc/public/editBook/<?= $book["id"] ?>">Éditer</a>
+                    <a href="/P4-TomTroc/public/deleteBook/<?= $book["id"] ?>">Supprimer</a>
                 </div>
             </div>
         <?php endforeach; ?>
