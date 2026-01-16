@@ -184,7 +184,9 @@
 
 .book-photo>img {
     width: 7vw;
+    height: 7vw;
     margin: 25px 0;
+    object-fit: cover;
 }
 
 .book-row {

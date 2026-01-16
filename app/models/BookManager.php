@@ -51,6 +51,37 @@ class BookManager extends AbstractEntityManager
         }
     }
 
+    public function update($title, $description, $writer, $image, $is_available, $book)
+    {
+        try {
+            $title = htmlspecialchars($title);
+            $description = htmlspecialchars($description);
+            $writer = htmlspecialchars($writer);
+            $is_available = (bool)$is_available;
+
+            $previousImagePath = $book->getImage();
+
+            if (!empty($image) && isset($image['tmp_name']) && $image['tmp_name'] !== '' && $image['error'] === UPLOAD_ERR_OK) {
+                $imagePath = $this->uploadImageToCloudinary($image);
+                if($imagePath) {
+                    $this->deleteImageFromCloudinary($previousImagePath);
+                } else {
+                    $imagePath = $previousImagePath;
+                }
+            } else {
+                $imagePath = $previousImagePath;
+            }
+
+            $query = "UPDATE book SET title = ?, description = ?, writer = ?, image = ?, is_available = ? WHERE id = ?";
+            $stmt = $this->db->query($query, [$title, $description, $writer, $imagePath, $is_available, $book->getId()]);
+            
+            return $stmt;
+        } catch (Exception $e) {
+            error_log("Book update error: " . $e->getMessage());
+            return false;
+        }
+    }
+
     public function getLastInserted(): ?Book
     {
         $query = "SELECT * FROM book ORDER BY id DESC LIMIT 1";
