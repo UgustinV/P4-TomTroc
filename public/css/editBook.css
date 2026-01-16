@@ -1,8 +1,9 @@
 #edit-page {
     display: flex;
     flex-direction: column;
-    margin: 0 150px;
-    margin-bottom: 90px;
+    padding: 0 150px;
+    padding-bottom: 90px;
+    background-color: var(--backgroundLight);
 }
 
 #edit-page h1 {

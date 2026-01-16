@@ -4,6 +4,7 @@
     align-items: flex-start;
     width: 100%;
     padding: 80px 250px;
+    background-color: var(--backgroundLight);
 }
 
 #books-header {
