@@ -8,12 +8,13 @@ class App
     public function __construct()
     {
         $url = $this->parseUrl();
-        if (isset($url[0]) && file_exists('../app/controllers/' . $url[0] . '.php')) {
+        if (isset($url[0]) && file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
             $this->controller = $url[0];
             unset($url[0]);
         }
-        require_once '../app/controllers/' . $this->controller . '.php';
-        $this->controller = new $this->controller;
+        require_once '../app/controllers/' . $this->controller . 'Controller.php';
+        $controllerClass = $this->controller . 'Controller';
+        $this->controller = new $controllerClass;
 
         if (isset($url[1])) {
             if (method_exists($this->controller, $url[1])) {

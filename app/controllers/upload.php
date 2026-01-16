@@ -1,6 +1,6 @@
 <?php
 
-class Upload extends Controller
+class UploadController extends Controller
 {
     public function index()
     {

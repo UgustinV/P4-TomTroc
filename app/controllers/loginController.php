@@ -1,6 +1,6 @@
 <?php
 
-class Login extends Controller
+class LoginController extends Controller
 {
     public function index()
     {

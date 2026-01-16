@@ -1,6 +1,6 @@
 <?php
 
-class Account extends Controller
+class AccountController extends Controller
 {
     public function index()
     {
