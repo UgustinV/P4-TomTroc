@@ -46,7 +46,27 @@
                     </li>
                     <?php 
                         if (isset($_SESSION['user'])) {
-                            echo '<li><a href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>Messagerie</a></li><li><a href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>Mon Compte</a></li><li><a href="/P4-TomTroc/public/logout">Déconnexion</a></li>';
+                            echo '
+                            <li>
+                                <a href="/P4-TomTroc/public/upload">
+                                    Publier
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>
+                                    Messagerie
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>
+                                    Mon Compte
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/P4-TomTroc/public/logout">
+                                    Déconnexion
+                                </a>
+                            </li>';
                         }
                         else {
                             echo '<li><a href="/P4-TomTroc/public/login"' . ($title == 'TomTroc - Login' ? 'class="focus"' : '') . '>Connexion</a></li>';
@@ -57,7 +77,21 @@
             <div id="account-manager">
                 <?php 
                     if (isset($_SESSION['user'])) {
-                        echo '<a href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>Messagerie</a><a href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>Mon Compte</a><a href="/P4-TomTroc/public/logout">Déconnexion</a>';
+                        echo '
+                        <a href="/P4-TomTroc/public/upload">
+                            Publier
+                        </a>
+                        <a id="tchat-link" href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>
+                            <img src="/P4-TomTroc/public/images/tchat-icon.svg" alt="Messagerie">
+                            <p>Messagerie</p>
+                        </a>
+                        <a id="account-link" href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>
+                            <img src="/P4-TomTroc/public/images/account-icon.svg" alt="Mon Compte">
+                            <p>Mon Compte</p>
+                        </a>
+                        <a href="/P4-TomTroc/public/logout">
+                            Déconnexion
+                        </a>';
                     }
                     else {
                         echo '<a href="/P4-TomTroc/public/login"' . ($title == 'TomTroc - Login' ? 'class="focus"' : '') . '>Connexion</a>';

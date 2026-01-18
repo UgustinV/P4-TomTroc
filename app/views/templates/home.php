@@ -43,7 +43,7 @@
         <div class="step-card">Parcourez les livres disponibles chez d'autres membres.</div>
         <div class="step-card">Proposez un échange et discutez avec d'autres passionnés de lecture.</div>
     </div>
-    <a class="button transparent-button" href="/P4-TomTroc/public/register">Voir tous les livres</a>
+    <a class="button transparent-button" href="/P4-TomTroc/public/books">Voir tous les livres</a>
 </section>
 <div id="home-banner">
     <img src="/P4-TomTroc/public/images/home_desktop_banner.png" alt="Bannière accueil">

@@ -6,8 +6,10 @@ class BookController extends Controller
     {
         if ($id) {
             $book = $this->getBook($id);
-            if ($_SESSION['user']->getId() == $book->getUserId() ?? false) {
-                header('Location: /P4-TomTroc/public/editBook/' . $book->getId());
+            if ($_SESSION['user'] ?? false) {
+                if ($_SESSION['user']->getId() == $book->getUserId() ?? false) {
+                    header('Location: /P4-TomTroc/public/editBook/' . $book->getId());
+                }
             }
             else if ($book) {
                 $ownerModel = new UserManager();

@@ -65,6 +65,13 @@ nav > input, nav > label {
     gap: 58px;
 }
 
+#account-link, #tchat-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 5px;
+}
+
 nav a {
     text-decoration: none;
     color: var(--darkGrey);
@@ -136,6 +143,7 @@ footer a {
         width: 100%;
         text-align: center;
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        z-index: 10;
     }
 
     #burger-content ul {

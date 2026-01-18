@@ -1,4 +1,8 @@
 <div id="edit-page">
+    <div id="back-button">
+        <img src="/P4-TomTroc/public/images/back-arrow.svg" alt="Flèche de retour">
+        <a href="/P4-TomTroc/public/books">retour</a>
+    </div>
     <h1>Modifier les informations</h1>
     <form action="/P4-TomTroc/public/editBook/<?= htmlspecialchars($book->getId()) ?>" method="POST" enctype="multipart/form-data">
         <?php if (isset($errors) && !empty($errors)): ?>
@@ -33,8 +37,9 @@
         <div id="image-input">
             <p>Photo</p>
             <div id="image-field">
+                <img src="<?= htmlspecialchars($book->getImage()) ?>" alt="Image du livre">
                 <label for="image-import">
-                    <img src="<?= htmlspecialchars($book->getImage()) ?>" alt="Image du livre">
+                    Modifier la photo
                 </label>
                 <input type="file" id="image-import" name="image" accept=".png, .jpg, .jpeg">
             </div>
