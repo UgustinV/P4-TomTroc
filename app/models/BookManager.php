@@ -132,4 +132,21 @@ class BookManager extends AbstractEntityManager
         }
         return null;
     }
+
+    public function deleteBook($id): bool
+    {
+        try {
+            $book = $this->getBookById($id);
+            if ($book) {
+                $this->deleteImageFromCloudinary($book->getImage());
+            }
+
+            $query = "DELETE FROM book WHERE id = ?";
+            $stmt = $this->db->query($query, [$id]);
+            return (bool)$stmt;
+        } catch (Exception $e) {
+            error_log("Book deletion error: " . $e->getMessage());
+            return false;
+        }
+    }
 }

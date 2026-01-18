@@ -48,9 +48,6 @@
 #user-image-container label {
     color: var(--greyText);
     text-decoration: underline;
-}
-
-#user-image-container label:hover {
     cursor: pointer;
 }
 
