@@ -3,7 +3,11 @@
     <div id="user-section">
         <div id="user-info">
             <div id="user-image-container">
-                <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="">
+                <?php if($user->getImage()): ?>
+                    <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="">
+                <?php else: ?>
+                    <img src="/P4-TomTroc/public/images/user-profile.svg" alt="Image par défaut">
+                <?php endif; ?>
                 <label for="image">modifier</label>
             </div>
             <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
@@ -32,7 +36,7 @@
                 <?php
                     $bookCount = count($books);
                     if ($bookCount === 0) {
-                        echo '<p>Vous n\'avez pas encore ajouté de livre.</p>';
+                        echo '<p>Vous n\'avez pas encore ajouté de livres.</p>';
                     } elseif ($bookCount === 1) {
                         echo '<p>1 livre</p>';
                     } else {
