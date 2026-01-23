@@ -20,6 +20,23 @@ class MessagesManager extends AbstractEntityManager
         return $messages;
     }
 
+    public function findById(int $messageId): Messages|null
+    {
+        $query = "
+            SELECT *
+            FROM messages
+            WHERE id = ?
+        ";
+        $stmt = $this->db->query($query, [$messageId]);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($data)) {
+            return new Messages($data);
+        } else {
+            return null;
+        }
+    }
+
     private function getLastInsertId($tchatRoomId): ?int
     {
         $roomManager = new TchatRoomManager();
@@ -47,5 +64,32 @@ class MessagesManager extends AbstractEntityManager
         ";
         $this->db->query($query, [$content, $tchatRoomId, $userId]);
         return $this->getLastInsertId($tchatRoomId);
+    }
+
+    public function markMessagesAsRead(int $tchatRoomId, int $currentUserId): void
+    {
+        $query = "
+            UPDATE messages 
+            SET message_read = 1 
+            WHERE tchat_room_id = ? 
+            AND user_id != ? 
+            AND message_read = 0
+        ";
+        $this->db->query($query, [$tchatRoomId, $currentUserId]);
+    }
+
+    public function countAllUnreadMessagesForUser(int $currentUserId): int
+    {
+        $query = "
+            SELECT COUNT(*) as total_unread
+            FROM messages m
+            INNER JOIN tchat tr ON m.tchat_room_id = tr.id
+            WHERE (tr.user1 = ? OR tr.user2 = ?)
+            AND m.user_id != ?
+            AND m.message_read = 0
+        ";
+        $stmt = $this->db->query($query, [$currentUserId, $currentUserId, $currentUserId]);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return (int)$data['total_unread'];
     }
 }

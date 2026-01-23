@@ -3,11 +3,7 @@
     <div id="user-section">
         <div id="user-info">
             <div id="user-image-container">
-                <?php if($user->getImage()): ?>
-                    <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="">
-                <?php else: ?>
-                    <img src="/P4-TomTroc/public/images/user-profile.svg" alt="Image par défaut">
-                <?php endif; ?>
+                <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="">
                 <label for="image">modifier</label>
             </div>
             <h2><?= htmlspecialchars($user->getNickname()) ?></h2>

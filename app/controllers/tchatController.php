@@ -5,6 +5,8 @@ class TchatController extends Controller
     public function index($otherUserId = null)
     {
         $currentUserId = $_SESSION['user']->getId() ?? null;
+        $messageModel = new MessagesManager();
+        $userModel = new UserManager();
         if($currentUserId === null) {
             header('Location: /P4-TomTroc/public/login');
             exit();
@@ -15,8 +17,9 @@ class TchatController extends Controller
             $otherUsers = [];
             $currentRoom = $tchatModel->getLatestMessageRoom($currentUserId);
             $otherUserId = $currentRoom ? (($currentRoom->getUser1() === $currentUserId) ? $currentRoom->getUser2() : $currentRoom->getUser1()) : null;
-            $otherUser = (new UserManager())->findById($otherUserId);
-            $messages = $currentRoom ? (new MessagesManager())->getMessagesByTchatRoomId($currentRoom->getId()) : [];
+            $otherUser = $userModel->findById($otherUserId);
+            $messageModel->markMessagesAsRead($currentRoom->getId(), $currentUserId);
+            $messages = $currentRoom ? $messageModel->getMessagesByTchatRoomId($currentRoom->getId()) : [];
             foreach($rooms as $room) {
                 $otherUsers[] = ($room->getUser1() === $currentUserId) ? $room->getUser2() : $room->getUser1();
             }
@@ -47,15 +50,12 @@ class TchatController extends Controller
                     $otherUsers[] = ($room->getUser1() === $currentUserId) ? $room->getUser2() : $room->getUser1();
                 }
                 if($currentRoom) {
-                    $messageModel = new MessagesManager();
+                    $messageModel->markMessagesAsRead($currentRoom->getId(), $currentUserId);
                     $messages = $messageModel->getMessagesByTchatRoomId($currentRoom->getId());
                 } else {
                     $messages = [];
                 }
-    
-                $userModel = new UserManager();
                 $otherUser = $userModel->findById($otherUserId);
-    
     
                 $this->view('tchat', ['messages' => $messages, 'user' => $otherUser, 'otherUsers' => $otherUsers, 'rooms' => $rooms]);
             }

@@ -19,6 +19,8 @@
         <link rel="stylesheet" href="/P4-TomTroc/public/css/book.css">
     <?php elseif ($title == 'TomTroc - EditBook'): ?>
         <link rel="stylesheet" href="/P4-TomTroc/public/css/editBook.css">
+    <?php elseif ($title == 'TomTroc - Tchat'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/tchat.css">
     <?php endif; ?>
 </head>
 
@@ -83,7 +85,7 @@
                         </a>
                         <a id="tchat-link" href="/P4-TomTroc/public/tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>
                             <img src="/P4-TomTroc/public/images/tchat-icon.svg" alt="Messagerie">
-                            <p>Messagerie</p>
+                            <p>Messagerie</p><p>' . ($data['unreadMessagesCount'] > 0 ? $data['unreadMessagesCount'] : '') . '</p>
                         </a>
                         <a id="account-link" href="/P4-TomTroc/public/account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>
                             <img src="/P4-TomTroc/public/images/account-icon.svg" alt="Mon Compte">

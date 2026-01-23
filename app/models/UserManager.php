@@ -69,23 +69,35 @@ class UserManager extends AbstractEntityManager
             $email = filter_var($email, FILTER_SANITIZE_EMAIL);
             $password = htmlspecialchars($password);
 
-            $imagePath = (isset($image) ? $this->uploadImageToCloudinary($image) : null);
+            $imagePath = (isset($image) && !empty($image['tmp_name'])) ? $this->uploadImageToCloudinary($image) : null;
+
+            $updateFields = [];
+            $updateValues = [];
+
+            $updateFields[] = "nickname = ?";
+            $updateValues[] = $nickname;
+            $updateFields[] = "email = ?";
+            $updateValues[] = $email;
 
             if (!empty($password)) {
                 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-                $query = "UPDATE user SET nickname = ?, email = ?, password = ? WHERE id = ?";
-                $stmt = $this->db->query($query, [$nickname, $email, $hashedPassword, $userId]);
-            } else if ($imagePath) {
+                $updateFields[] = "password = ?";
+                $updateValues[] = $hashedPassword;
+            }
+
+            if ($imagePath) {
                 if ($user->getImage()) {
                     $this->deleteImageFromCloudinary($user->getImage());
                 }
-                $query = "UPDATE user SET nickname = ?, email = ?, image = ? WHERE id = ?";
-                $stmt = $this->db->query($query, [$nickname, $email, $imagePath, $userId]);
+                $updateFields[] = "image = ?";
+                $updateValues[] = $imagePath;
             }
-            else {
-                $query = "UPDATE user SET nickname = ?, email = ? WHERE id = ?";
-                $stmt = $this->db->query($query, [$nickname, $email, $userId]);
-            }
+
+            $updateValues[] = $userId;
+
+            $query = "UPDATE user SET " . implode(", ", $updateFields) . " WHERE id = ?";
+            $stmt = $this->db->query($query, $updateValues);
+            
             return $stmt;
         } catch (PDOException $e) {
             error_log("Update user error: " . $e->getMessage());

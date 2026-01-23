@@ -12,7 +12,7 @@
             <p><?= htmlspecialchars($book->getDescription()); ?></p>
             <span>PROPRIÉTAIRE</span>
             <div id="owner">
-                <img src=<?= $owner->getImage() ?> alt="Image de profile de <?= htmlspecialchars($owner->getNickname()); ?>>">
+                <img src="<?= $owner->getImage() ?>" alt="Image de profile de <?= htmlspecialchars($owner->getNickname()); ?>">
                 <h3><?= htmlspecialchars($owner->getNickname()); ?></h3>
             </div>
             <a href=<?= "/P4-TomTroc/public/tchat/" . $owner->getId() ?>>Envoyer un message</a>

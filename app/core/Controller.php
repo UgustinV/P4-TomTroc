@@ -15,6 +15,12 @@ class Controller
 
     public function view($viewName, $data = [])
     {
+        if (isset($_SESSION['user'])) {
+            $messageManager = new MessagesManager();
+            $data['unreadMessagesCount'] = $messageManager->countAllUnreadMessagesForUser($_SESSION['user']->getId());
+        } else {
+            $data['unreadMessagesCount'] = 0;
+        }
         $content = $this->render($viewName, $data);
         $title = 'TomTroc - ' . ucfirst($viewName);
         ob_start();

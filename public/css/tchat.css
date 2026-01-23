@@ -1,0 +1,180 @@
+#tchat-page {
+    display: flex;
+    flex-direction: row;
+    padding-left: 150px;
+    padding-right: 150px;
+    height: calc(100vh - 80px - 60px);
+}
+
+#tchat-rooms {
+    width: 20%;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: var(--backgroundLight);
+}
+
+#tchat-rooms h1 {
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--darkGrey);
+    margin: 55px 0 27px 35px;
+}
+
+.tchatRoom {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 100%;
+    flex: 1;
+    padding: 18px 0;
+    padding-left: 35px;
+}
+
+.current-room {
+    background-color: white;
+}
+
+.tchatRoom>a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    align-items: center;
+}
+
+.tchatRoom>a>img, #current-tchat-profile>img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.room-text {
+    display: flex;
+    flex-direction: column;
+    padding-right: 42px;
+    width: 80%;
+    margin-left: 15px;
+}
+
+.room-text-header {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+    padding-bottom: 5px;
+    color: var(--darkGrey);
+}
+
+.room-text>span {
+    display: block;
+    font-size: 14px;
+    color: var(--greyText);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#tchat-window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 80%;
+    padding-left: 45px;
+}
+
+#current-tchat-profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-top: 35px;
+}
+
+.other-user-message, .current-user-message {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 60px;
+    font-family: 'Inter', sans-serif;
+}
+
+.other-user-message {
+    align-items: flex-start;
+}
+
+.current-user-message {
+    align-items: flex-end;
+}
+
+.other-user-message>.content, .current-user-message>.content {
+    max-width: 60%;
+    padding: 15px 20px;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.other-user-message>.content {
+    background-color: white;
+}
+
+.current-user-message>.content {
+    background-color: var(--formBackground);
+}
+
+.message-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.message-info>.date {
+    font-size: 12px;
+    color: var(--greyText);
+}
+
+.message-info>img {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#tchat {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#tchat-messages {
+    flex: 1;
+    overflow-y: auto;
+    max-height: calc(100vh - 350px);
+}
+
+#tchat-form {
+    display: flex;
+    flex-direction: row;
+    padding: 40px 0;
+    padding-bottom: 100px;
+    align-items: center;
+    gap: 15px;
+}
+
+#tchat-form input {
+    width: 80%;
+    height: 50px;
+    vertical-align: middle;
+    resize: none;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+#tchat-form button {
+    width: 20%;
+    height: 50px;
+    background-color: var(--buttonGreen);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
