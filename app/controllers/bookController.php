@@ -16,6 +16,8 @@ class BookController extends Controller
                     $this->view('book', ['book' => $book, 'owner' => $owner]);
                     return;
                 }
+            } else {
+                header('Location: /P4-TomTroc/public/error404');
             }
         } else {
             header('Location: /P4-TomTroc/public/error404');

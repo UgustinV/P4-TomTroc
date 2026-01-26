@@ -6,13 +6,24 @@ class TchatController extends Controller
     {
         $messageModel = new MessagesManager();
         $userModel = new UserManager();
+        $tchatModel = new TchatRoomManager();
+        $otherUser = $userModel->findById($otherUserId);
         if(!isset($_SESSION['user'])) {
             header('Location: /P4-TomTroc/public/login');
-            exit();
         }
-        else if (!$otherUserId) {
+        if ($otherUserId !== null) {
+            if (!ctype_digit(strval($otherUserId))) {
+                header('Location: /P4-TomTroc/public/error404');
+            }
+            $otherUserId = (int)$otherUserId;
+            $userModel = new UserManager();
+            $otherUser = $userModel->findById($otherUserId);
+            if ($otherUser == null) {
+                header('Location: /P4-TomTroc/public/error404');
+            }
+        }
+        if ($otherUser == null) {
             $currentUserId = $_SESSION['user']->getId();
-            $tchatModel = new TchatRoomManager();
             $rooms = $tchatModel->getAllTchatRoomsForUser($currentUserId);
             $currentRoom = $tchatModel->getLatestMessageRoom($currentUserId);
             $otherUserId = $currentRoom ? (($currentRoom->getUser1() === $currentUserId) ? $currentRoom->getUser2() : $currentRoom->getUser1()) : null;
@@ -25,9 +36,7 @@ class TchatController extends Controller
             $currentUserId = $_SESSION['user']->getId();
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
                 $content = htmlspecialchars($_POST['message']);
-                $tchatModel = new TchatRoomManager();
                 $tchatRoom = $tchatModel->getUserTchatRoom($currentUserId, $otherUserId);
-                $messageModel = new MessagesManager();
                 if($tchatRoom === null) {
                     $tchatModel->createTchatRoom($currentUserId, $otherUserId, null);
                     $tchatRoom = $tchatModel->getUserTchatRoom($currentUserId, $otherUserId);
@@ -36,10 +45,8 @@ class TchatController extends Controller
                 $tchatModel->updateLatestMessage($tchatRoom->getId(), $latestId);
 
                 header("Location: /P4-TomTroc/public/tchat/{$otherUserId}");
-                exit();
             }
             else {
-                $tchatModel = new TchatRoomManager();
                 $rooms = $tchatModel->getAllTchatRoomsForUser($currentUserId);
                 $currentRoom = $tchatModel->getUserTchatRoom($currentUserId, $otherUserId);
                 if($currentRoom) {

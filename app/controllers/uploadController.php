@@ -6,7 +6,7 @@ class UploadController extends Controller
     {
          if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->store();
-        } else if ($_SESSION['user']->getId() ?? false) {
+        } else if (isset($_SESSION['user']) && $_SESSION['user']->getId()) {
             $this->view('upload', []);
         } else {
             header('Location: /P4-TomTroc/public/login');
@@ -20,7 +20,7 @@ class UploadController extends Controller
         $description = trim($_POST['description'] ?? '');
         $writer = trim($_POST['writer'] ?? '');
         $image = $_FILES['image'] ?? null;
-        $is_available = $_POST['is_available'];
+        $is_available = $_POST['is_available'] ?? null;
         $user_id = $_SESSION['user']->getId() ?? null;
 
         $errors = [];
@@ -43,6 +43,10 @@ class UploadController extends Controller
 
         if (empty($user_id)) {
             $errors[] = "Utilisateur non authentifié";
+        }
+
+        if (empty($is_available)) {
+            $errors[] = "La disponibilité est requise";
         }
 
         if (empty($errors)) {

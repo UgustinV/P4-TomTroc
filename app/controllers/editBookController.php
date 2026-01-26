@@ -7,13 +7,13 @@ class EditBookController extends Controller
         if ($id) {
             $bookModel = new BookManager();
             $book = $bookModel->getBookById($id);
-            if (!$book || $book->getUserId() !== ($_SESSION['user']->getId())) {
-                header('Location: /P4-TomTroc/public/home');
+            if (!$book || !isset($_SESSION['user']) || $book->getUserId() !== ($_SESSION['user']->getId())) {
+                header('Location: /P4-TomTroc/public/error404');
                 exit;
             }
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                $this->store($book);
-           } else if ($_SESSION['user']->getId() ?? false) {
+           } else if (isset($_SESSION['user']) && $_SESSION['user']->getId()) {
                $this->view('editBook', ['book' => $book]);
            }
         } else {
@@ -28,7 +28,7 @@ class EditBookController extends Controller
         $description = trim($_POST['description'] ?? '');
         $writer = trim($_POST['writer'] ?? '');
         $image = $_FILES['image'] ?? null;
-        $is_available = $_POST['is_available'];
+        $is_available = $_POST['is_available'] ?? null;
 
         $errors = [];
 
@@ -42,6 +42,10 @@ class EditBookController extends Controller
 
         if (empty($writer)) {
             $errors[] = "L'auteur est requis";
+        }
+
+        if (empty($is_available)) {
+            $errors[] = "La disponibilité est requise";
         }
 
         if (empty($errors)) {
