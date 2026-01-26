@@ -5,7 +5,7 @@ class UserProfileController extends Controller
     public function index($id = null)
     {
         if(!isset($id)){
-            header('Location: /P4-TomTroc/public/error404');
+            header('Location: ' . BASE_URL . 'error404');
             exit();
         }
         $user = $this->getUserData($id);
@@ -14,7 +14,7 @@ class UserProfileController extends Controller
             $this->view('userProfile', ['user' => $user, 'books' => $books]);
         }
         else {
-            header('Location: /P4-TomTroc/public/error404');
+            header('Location: ' . BASE_URL . 'error404');
             exit();
         }
     }

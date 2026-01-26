@@ -1,6 +1,6 @@
 <div id="upload-page">
     <h1>Ajouter un livre</h1>
-    <form action="/P4-TomTroc/public/upload" method="POST" enctype="multipart/form-data">
+    <form action="<?= BASE_URL ?>upload" method="POST" enctype="multipart/form-data">
         <?php if (isset($errors) && !empty($errors)): ?>
             <div class="errors">
                 <?php foreach ($errors as $error): ?>
@@ -34,7 +34,7 @@
             <p>Photo</p>
             <div id="image-field">
                 <label for="image-import">
-                    <img src="/P4-TomTroc/public/images/upload_illustration.svg" alt="Upload Illustration">
+                    <img src="<?= BASE_URL ?>images/upload_illustration.svg" alt="Upload Illustration">
                 </label>
                 <input type="file" id="image-import" name="image" accept=".png, .jpg, .jpeg" required>
             </div>

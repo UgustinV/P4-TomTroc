@@ -4,10 +4,10 @@
             <p>
                 Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage de connaissances et d'histoires à travers les livres.
             </p>
-            <a class="button green-button" href="/P4-TomTroc/public/books">Découvrir</a>
+            <a class="button green-button" href="<?= BASE_URL ?>books">Découvrir</a>
         </div>
         <div>
-            <img src="/P4-TomTroc/public/images/hamza-nouasria.png" alt="Image de Hamza Nouasria">
+            <img src="<?= BASE_URL ?>images/hamza-nouasria.png" alt="Image de Hamza Nouasria">
             <p>Hamza</p>
         </div>
 </section>
@@ -15,7 +15,7 @@
     <h2>Les derniers livres ajoutés</h2>
     <div id="bookCardsWrapper">
         <?php foreach ($books as $book): ?>
-            <a class="bookCard" href="/P4-TomTroc/public/book/<?= $book['id'] ?>">
+            <a class="bookCard" href="<?= BASE_URL ?>book/<?= $book['id'] ?>">
                     <div class="bookImageContainer">
                         <img src="<?= $book['image'] ?>" alt="Couverture du livre <?= $book['title'] ?>">
                     </div>
@@ -27,7 +27,7 @@
             </a>
         <?php endforeach; ?>
     </div>
-    <a class="button green-button" href="/P4-TomTroc/public/books">Voir tous les livres</a>
+    <a class="button green-button" href="<?= BASE_URL ?>books">Voir tous les livres</a>
 </section>
 <section id="how-to">
     <div>
@@ -40,11 +40,11 @@
         <div class="step-card">Parcourez les livres disponibles chez d'autres membres.</div>
         <div class="step-card">Proposez un échange et discutez avec d'autres passionnés de lecture.</div>
     </div>
-    <a class="button transparent-button" href="/P4-TomTroc/public/books">Voir tous les livres</a>
+    <a class="button transparent-button" href="<?= BASE_URL ?>books">Voir tous les livres</a>
 </section>
 <div id="home-banner">
-    <img src="/P4-TomTroc/public/images/home_desktop_banner.png" alt="Bannière accueil">
-    <img src="/P4-TomTroc/public/images/home_mobile_banner.png" alt="Bannière accueil mobile">
+    <img src="<?= BASE_URL ?>images/home_desktop_banner.png" alt="Bannière accueil">
+    <img src="<?= BASE_URL ?>images/home_mobile_banner.png" alt="Bannière accueil mobile">
 </div>
 <section id="team-message">
     <div>
@@ -60,5 +60,5 @@
         </p>
         <p>L’équipe Tom Troc</p>
     </div>
-    <img src="/P4-TomTroc/public/images/logo_coeur.svg" alt="Logo Coeur">
+    <img src="<?= BASE_URL ?>images/logo_coeur.svg" alt="Logo Coeur">
 </section>

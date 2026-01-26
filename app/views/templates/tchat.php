@@ -9,7 +9,7 @@
                 $isCurrentRoom = ($user && $user->getId() === $otherUserId);
             ?>
             <div class="tchatRoom <?= $isCurrentRoom ? 'current-room' : '' ?>">
-                <a href="/P4-TomTroc/public/tchat/<?= htmlspecialchars($otherUserId) ?>">
+                <a href="<?= BASE_URL ?>tchat/<?= htmlspecialchars($otherUserId) ?>">
                     <img src="<?= htmlspecialchars($otherUser->getImage()) ?>" alt="User profile">
                     <div class="room-text">
                         <div class="room-text-header">
@@ -47,7 +47,7 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <form id="tchat-form" method="post" action="/P4-TomTroc/public/tchat/<?= htmlspecialchars($user->getId()) ?>">
+                <form id="tchat-form" method="post" action="<?= BASE_URL ?>tchat/<?= htmlspecialchars($user->getId()) ?>">
                     <input type="hidden" name="tchat_room_id" value="<?= htmlspecialchars($tchatRoomId) ?>">
                     <input name="message" placeholder="Tapez votre message ici..." required>
                     <button type="submit">Envoyer</button>

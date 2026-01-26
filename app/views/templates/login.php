@@ -1,7 +1,7 @@
 <div id="login-page">
     <div id="login-form">
         <h1>Connexion</h1>
-        <form action="/P4-TomTroc/public/login" method="POST">
+        <form action="<?= BASE_URL ?>login" method="POST">
             <?php if (isset($errors) && !empty($errors)): ?>
                 <div class="errors">
                     <?php foreach ($errors as $error): ?>
@@ -20,10 +20,10 @@
             <button type="submit">Se connecter</button>
         </form>
         <div>
-            <span>Pas encore de compte ?</span><a href="/P4-TomTroc/public/register"> Inscrivez-vous</a>
+            <span>Pas encore de compte ?</span><a href="<?= BASE_URL ?>register"> Inscrivez-vous</a>
         </div>
     </div>
     <div>
-        <img src="/P4-TomTroc/public/images/login_illustration.png" alt="Login Illustration">
+        <img src="<?= BASE_URL ?>images/login_illustration.png" alt="Login Illustration">
     </div>
 </div>

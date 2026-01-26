@@ -17,7 +17,7 @@ class AccountController extends Controller
             // Refresh session user data
             $_SESSION['user'] = $this->getUserData($userId);
 
-            header('Location: /P4-TomTroc/public/account');
+            header('Location: ' . BASE_URL . 'account');
             exit();
         }
         else if (isset($_SESSION['user']) && $_SESSION['user']->getId()) {
@@ -27,7 +27,7 @@ class AccountController extends Controller
             $this->view('account', ['user' => $user, 'books' => $books]);
         }
         else {
-            header('Location: /P4-TomTroc/public/login');
+            header('Location: ' . BASE_URL . 'login');
             exit();
         }
     }

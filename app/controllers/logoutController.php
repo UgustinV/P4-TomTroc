@@ -10,7 +10,7 @@ class LogoutController extends Controller
     public function logout()
     {
         unset($_SESSION['user']);
-        header('Location: /P4-TomTroc/public/login');
+        header('Location: ' . BASE_URL . 'login');
         exit;
     }
 }

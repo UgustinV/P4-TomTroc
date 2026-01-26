@@ -43,7 +43,7 @@ class RegisterController extends Controller
             }
             if (empty($errors)) {
                 if ($userModel->create($nickname, $email, $password)) {
-                    header('Location: /P4-TomTroc/public/login');
+                    header('Location: ' . BASE_URL . 'login');
                     exit;
                 } else {
                     $errors[] = "Erreur lors de l'inscription. Veuillez réessayer.";

@@ -9,17 +9,17 @@ class TchatController extends Controller
         $tchatModel = new TchatRoomManager();
         $otherUser = $userModel->findById($otherUserId);
         if(!isset($_SESSION['user'])) {
-            header('Location: /P4-TomTroc/public/login');
+            header('Location: ' . BASE_URL . 'login');
         }
         if ($otherUserId !== null) {
             if (!ctype_digit(strval($otherUserId))) {
-                header('Location: /P4-TomTroc/public/error404');
+                header('Location: ' . BASE_URL . 'error404');
             }
             $otherUserId = (int)$otherUserId;
             $userModel = new UserManager();
             $otherUser = $userModel->findById($otherUserId);
             if ($otherUser == null) {
-                header('Location: /P4-TomTroc/public/error404');
+                header('Location: ' . BASE_URL . 'error404');
             }
         }
         if ($otherUser == null) {
@@ -44,7 +44,7 @@ class TchatController extends Controller
                 $latestId = $messageModel->createMessage($content, $tchatRoom->getId(), $currentUserId);
                 $tchatModel->updateLatestMessage($tchatRoom->getId(), $latestId);
 
-                header("Location: /P4-TomTroc/public/tchat/{$otherUserId}");
+                header('Location: ' . BASE_URL . 'tchat/{$otherUserId}');
             }
             else {
                 $rooms = $tchatModel->getAllTchatRoomsForUser($currentUserId);

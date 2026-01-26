@@ -28,7 +28,7 @@
             ?>
             <span>BIBLIOTHEQUE</span>
             <div id="books-count">
-                <img src="/P4-TomTroc/public/images/library.svg" alt="Icone bibliothèque">
+                <img src="<?= BASE_URL ?>images/library.svg" alt="Icone bibliothèque">
                 <?php
                     $bookCount = count($books);
                     if ($bookCount === 0) {
@@ -44,7 +44,7 @@
         <div id="profile-edit-form">
             <div id="profile-edit-container">
                 <h3>Vos informations personnelles</h3>
-                <form action="/P4-TomTroc/public/account" method="POST" enctype="multipart/form-data">
+                <form action="<?= BASE_URL ?>account" method="POST" enctype="multipart/form-data">
                     <div class="input-field">
                         <label for="email">Adresse email</label>
                         <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" required>
@@ -94,8 +94,8 @@
                     <?php endif; ?>
                 </div>
                 <div class="book-action">
-                    <a href="/P4-TomTroc/public/editBook/<?= $book["id"] ?>">Éditer</a>
-                    <a href="/P4-TomTroc/public/delete/<?= $book["id"] ?>">Supprimer</a>
+                    <a href="<?= BASE_URL ?>editBook/<?= $book["id"] ?>">Éditer</a>
+                    <a href="<?= BASE_URL ?>delete/<?= $book["id"] ?>">Supprimer</a>
                 </div>
             </div>
         <?php endforeach; ?>

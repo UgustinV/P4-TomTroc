@@ -31,7 +31,7 @@ class LoginController extends Controller
             $user = $userModel->findByEmail($email);
             if ($user && password_verify($password, $user->getPassword())) {
                 $_SESSION['user'] = $user;
-                header('Location: /P4-TomTroc/public/books');
+                header('Location: ' . BASE_URL . 'books');
                 exit;
             } else {
                 $errors[] = "Email ou mot de passe incorrect";

@@ -8,7 +8,7 @@ class EditBookController extends Controller
             $bookModel = new BookManager();
             $book = $bookModel->getBookById($id);
             if (!$book || !isset($_SESSION['user']) || $book->getUserId() !== ($_SESSION['user']->getId())) {
-                header('Location: /P4-TomTroc/public/error404');
+                header('Location: ' . BASE_URL . 'error404');
                 exit;
             }
             if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -17,7 +17,7 @@ class EditBookController extends Controller
                $this->view('editBook', ['book' => $book]);
            }
         } else {
-            header('Location: /P4-TomTroc/public/home');
+            header('Location: ' . BASE_URL . 'home');
             exit;
         }
     }
@@ -52,7 +52,7 @@ class EditBookController extends Controller
             $bookModel = new BookManager();
             if (empty($errors)) {
                 if ($bookModel->update($title, $description, $writer, $image, $is_available, $book)) {
-                    header('Location: /P4-TomTroc/public/book/' . $book->getId());
+                    header('Location: ' . BASE_URL . 'book/' . $book->getId());
                     exit;
                 } else {
                     $errors[] = "Erreur lors de l'inscription. Veuillez réessayer.";

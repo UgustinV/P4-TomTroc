@@ -11,11 +11,11 @@
             <span>DESCRIPTION</span>
             <p><?= htmlspecialchars($book->getDescription()); ?></p>
             <span>PROPRIÉTAIRE</span>
-            <a id="owner" href="<?= "/P4-TomTroc/public/userProfile/" . $owner->getId() ?>">
+            <a id="owner" href="<?= "<?= BASE_URL ?>userProfile/" . $owner->getId() ?>">
                 <img src="<?= $owner->getImage() ?>" alt="Image de profile de <?= htmlspecialchars($owner->getNickname()); ?>">
                 <h3><?= htmlspecialchars($owner->getNickname()); ?></h3>
             </a>
-            <a href=<?= "/P4-TomTroc/public/tchat/" . $owner->getId() ?>>Envoyer un message</a>
+            <a href=<?= "<?= BASE_URL ?>tchat/" . $owner->getId() ?>>Envoyer un message</a>
         </div>
     <?php else: ?>
         <p>Aucun livre trouvé.</p>

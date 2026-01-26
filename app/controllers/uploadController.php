@@ -9,7 +9,7 @@ class UploadController extends Controller
         } else if (isset($_SESSION['user']) && $_SESSION['user']->getId()) {
             $this->view('upload', []);
         } else {
-            header('Location: /P4-TomTroc/public/login');
+            header('Location: ' . BASE_URL . 'login');
             exit;
         }
     }
@@ -54,7 +54,7 @@ class UploadController extends Controller
             if (empty($errors)) {
                 if ($bookModel->create($title, $description, $writer, $image, $is_available, $user_id)) {
                     $book = $bookModel->getLastInserted();
-                    header('Location: /P4-TomTroc/public/books/' . $book->getId());
+                    header('Location: ' . BASE_URL . 'books/' . $book->getId());
                     exit;
                 } else {
                     $errors[] = "Erreur lors de l'inscription. Veuillez réessayer.";

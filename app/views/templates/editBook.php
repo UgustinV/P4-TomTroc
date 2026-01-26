@@ -1,10 +1,10 @@
 <div id="edit-page">
     <div id="back-button">
-        <img src="/P4-TomTroc/public/images/back-arrow.svg" alt="Flèche de retour">
-        <a href="/P4-TomTroc/public/books">retour</a>
+        <img src="<?= BASE_URL ?>images/back-arrow.svg" alt="Flèche de retour">
+        <a href="<?= BASE_URL ?>books">retour</a>
     </div>
     <h1>Modifier les informations</h1>
-    <form action="/P4-TomTroc/public/editBook/<?= htmlspecialchars($book->getId()) ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= BASE_URL ?>editBook/<?= htmlspecialchars($book->getId()) ?>" method="POST" enctype="multipart/form-data">
         <?php if (isset($errors) && !empty($errors)): ?>
             <div class="errors">
                 <?php foreach ($errors as $error): ?>

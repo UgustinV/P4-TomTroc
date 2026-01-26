@@ -7,10 +7,10 @@ class DeleteController extends Controller
         $book = $this->getBook($id);
         if (isset($_SESSION['user']) && $_SESSION['user']->getId() == $book->getUserId()) {
             $this->deleteUserBook($id);
-            header('Location: /P4-TomTroc/public/account/');
+            header('Location: ' . BASE_URL . 'account/');
         }
         else {
-            header('Location: /P4-TomTroc/public/login');
+            header('Location: ' . BASE_URL . 'login');
         }
     }
 

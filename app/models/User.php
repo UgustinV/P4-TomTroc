@@ -30,7 +30,7 @@ class User extends AbstractEntity
 
     public function setImage(?string $image): void
     {
-        $this->image = $image ?? "/P4-TomTroc/public/images/user-profile.svg";
+        $this->image = $image ?? BASE_URL . "images/user-profile.svg";
     }
 
     public function setCreationDate(string $creationDate): void

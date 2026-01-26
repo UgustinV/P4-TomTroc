@@ -25,7 +25,7 @@
         ?>
         <span>BIBLIOTHEQUE</span>
         <div id="books-count">
-            <img src="/P4-TomTroc/public/images/library.svg" alt="Icone bibliothèque">
+            <img src="<?= BASE_URL ?>images/library.svg" alt="Icone bibliothèque">
             <?php
                 $bookCount = count($books);
                 if ($bookCount === 0) {
@@ -38,7 +38,7 @@
             ?>
         </div>
         <div id="send-message">
-            <a href="/P4-TomTroc/public/tchat/<?= $user->getId() ?>">Écrire un message</a>
+            <a href="<?= BASE_URL ?>tchat/<?= $user->getId() ?>">Écrire un message</a>
         </div>
     </div>
     <div id="user-books">
@@ -49,7 +49,7 @@
             <span>DESCRIPTION</span>
         </div>
         <?php foreach ($books as $book): ?>
-            <a class="book-row" href="/P4-TomTroc/public/book/<?= $book["id"] ?>">
+            <a class="book-row" href="<?= BASE_URL ?>book/<?= $book["id"] ?>">
                 <div class="book-photo">
                     <img src="<?= htmlspecialchars($book["image"]) ?>" alt="">
                 </div>

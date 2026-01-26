@@ -8,7 +8,7 @@ class BookController extends Controller
             $book = $this->getBook($id);
             if($book) {
                 if (isset($_SESSION['user']) && $_SESSION['user']->getId() == $book->getUserId()) {
-                    header('Location: /P4-TomTroc/public/editBook/' . $book->getId());
+                    header('Location: ' . BASE_URL . 'editBook/' . $book->getId());
                 }
                 else {
                     $ownerModel = new UserManager();
@@ -17,10 +17,10 @@ class BookController extends Controller
                     return;
                 }
             } else {
-                header('Location: /P4-TomTroc/public/error404');
+                header('Location: ' . BASE_URL . 'error404');
             }
         } else {
-            header('Location: /P4-TomTroc/public/error404');
+            header('Location: ' . BASE_URL . 'error404');
         }
     }
 
