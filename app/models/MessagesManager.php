@@ -8,7 +8,7 @@ class MessagesManager extends AbstractEntityManager
             SELECT *
             FROM messages
             WHERE tchat_room_id = ?
-            ORDER BY date ASC
+            ORDER BY date DESC
         ";
         $stmt = $this->db->query($query, [$tchatRoomId]);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);

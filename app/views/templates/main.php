@@ -21,6 +21,8 @@
         <link rel="stylesheet" href="/P4-TomTroc/public/css/editBook.css">
     <?php elseif ($title == 'TomTroc - Tchat'): ?>
         <link rel="stylesheet" href="/P4-TomTroc/public/css/tchat.css">
+    <?php elseif ($title == 'TomTroc - UserProfile'): ?>
+        <link rel="stylesheet" href="/P4-TomTroc/public/css/userProfile.css">
     <?php endif; ?>
 </head>
 

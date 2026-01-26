@@ -144,10 +144,15 @@
 
 #tchat-messages {
     flex: 1;
+    display: flex;
+    flex-direction: column-reverse;
     overflow-y: auto;
     max-height: calc(100vh - 350px);
-    -ms-overflow-style: none;
     scrollbar-width: none;
+}
+
+#tchat-messages>div:last-child { 
+    margin-bottom: 100px;
 }
 
 #tchat-messages::-webkit-scrollbar { 
@@ -157,7 +162,6 @@
 #tchat-form {
     display: flex;
     flex-direction: row;
-    padding: 40px 0;
     padding-bottom: 100px;
     align-items: center;
     gap: 15px;

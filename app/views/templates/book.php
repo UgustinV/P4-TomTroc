@@ -11,10 +11,10 @@
             <span>DESCRIPTION</span>
             <p><?= htmlspecialchars($book->getDescription()); ?></p>
             <span>PROPRIÉTAIRE</span>
-            <div id="owner">
+            <a id="owner" href="<?= "/P4-TomTroc/public/userProfile/" . $owner->getId() ?>">
                 <img src="<?= $owner->getImage() ?>" alt="Image de profile de <?= htmlspecialchars($owner->getNickname()); ?>">
                 <h3><?= htmlspecialchars($owner->getNickname()); ?></h3>
-            </div>
+            </a>
             <a href=<?= "/P4-TomTroc/public/tchat/" . $owner->getId() ?>>Envoyer un message</a>
         </div>
     <?php else: ?>
