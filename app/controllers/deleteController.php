@@ -5,20 +5,12 @@ class DeleteController extends Controller
     public function index($id = null)
     {
         $book = $this->getBook($id);
-        if ($_SESSION['user'] ?? false) {
-            if ($_SESSION['user']->getId() == $book->getUserId() ?? false) {
-                $this->deleteUserBook($id);
-                header('Location: /P4-TomTroc/public/account/');
-                exit();
-            }
-            else {
-                header('Location: /P4-TomTroc/public/books/');
-                exit();
-            }
+        if (isset($_SESSION['user']) && $_SESSION['user']->getId() == $book->getUserId()) {
+            $this->deleteUserBook($id);
+            header('Location: /P4-TomTroc/public/account/');
         }
         else {
             header('Location: /P4-TomTroc/public/login');
-            exit();
         }
     }
 

@@ -146,6 +146,12 @@
     flex: 1;
     overflow-y: auto;
     max-height: calc(100vh - 350px);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+#tchat-messages::-webkit-scrollbar { 
+    display: none;
 }
 
 #tchat-form {

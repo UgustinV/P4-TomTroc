@@ -7,7 +7,7 @@ class EditBookController extends Controller
         if ($id) {
             $bookModel = new BookManager();
             $book = $bookModel->getBookById($id);
-            if (!$book || $book->getUserId() !== ($_SESSION['user']->getId() ?? null)) {
+            if (!$book || $book->getUserId() !== ($_SESSION['user']->getId())) {
                 header('Location: /P4-TomTroc/public/home');
                 exit;
             }

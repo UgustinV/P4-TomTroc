@@ -2,19 +2,23 @@
 
 class App
 {
-    protected $controller = 'home';
+    protected $controller = 'homeController';
     protected $method = 'index';
     protected $params = [];
     public function __construct()
     {
         $url = $this->parseUrl();
-        if (isset($url[0]) && file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
-            $this->controller = $url[0];
+        if (isset($url[0])) {
+            if(file_exists('../app/controllers/' . $url[0] . 'Controller.php')) {
+                $this->controller = $url[0] . 'Controller';
+            }
+            else {
+                $this->controller = 'error404Controller';
+            }
             unset($url[0]);
         }
-        require_once '../app/controllers/' . $this->controller . 'Controller.php';
-        $controllerClass = $this->controller . 'Controller';
-        $this->controller = new $controllerClass;
+        require_once '../app/controllers/' . $this->controller . '.php';
+        $this->controller = new $this->controller;
 
         if (isset($url[1])) {
             if (method_exists($this->controller, $url[1])) {

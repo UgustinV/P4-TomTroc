@@ -1,19 +1,19 @@
 <div id="tchat-page">
-    <?php if (!empty($otherUsers) && !empty($rooms)): ?>
+    <?php if (!empty($rooms)): ?>
         <div id="tchat-rooms">
             <h1>Messagerie</h1>
             <?php foreach ($rooms as $index => $room):
                 $otherUserId = ($room->getUser1() === $_SESSION['user']->getId()) ? $room->getUser2() : $room->getUser1();
-                $user = (new UserManager())->findById($otherUserId);
+                $otherUser = (new UserManager())->findById($otherUserId);
                 $latestMessage = (new MessagesManager())->findById($room->getLatestMessage());
-                $isCurrentRoom = ($user && $user->getId() === ($user ? $user->getId() : null));
+                $isCurrentRoom = ($user && $user->getId() === $otherUserId);
             ?>
             <div class="tchatRoom <?= $isCurrentRoom ? 'current-room' : '' ?>">
                 <a href="/P4-TomTroc/public/tchat/<?= htmlspecialchars($otherUserId) ?>">
-                    <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="User profile">
+                    <img src="<?= htmlspecialchars($otherUser->getImage()) ?>" alt="User profile">
                     <div class="room-text">
                         <div class="room-text-header">
-                            <span><?= htmlspecialchars($user->getNickname()) ?></span>
+                            <span><?= htmlspecialchars($otherUser->getNickname()) ?></span>
                             <span><?= htmlspecialchars(date('H:i', strtotime($latestMessage->getDate()))) ?></span>
                         </div>
                         <span><?= htmlspecialchars($latestMessage->getContent()) ?></span>

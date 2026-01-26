@@ -87,6 +87,8 @@ section {
     width: 200px;
     border-radius: 0 0 10px 10px;
     background-color: white;
+    text-decoration: none;
+    color: inherit;
 }
 
 .bookImageContainer {

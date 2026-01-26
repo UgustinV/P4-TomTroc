@@ -13,21 +13,18 @@
 </section>
 <section id="latestBooks">
     <h2>Les derniers livres ajoutés</h2>
-    <?php
-        // Ici faire une boucle pour afficher les derniers livres ajoutés au site.
-    ?>
     <div id="bookCardsWrapper">
         <?php foreach ($books as $book): ?>
-            <div class="bookCard">
-                <div class="bookImageContainer">
-                    <img src="<?= $book['image'] ?>" alt="Couverture du livre <?= $book['title'] ?>">
-                </div>
-                <div class="bookDescription">
-                    <h3><?= $book['title'] ?></h3>
-                    <h4><?= $book['writer'] ?></h4>
-                    <p><strong>Vendu par :</strong> <?= $book['user_nickname'] ?></p>
-                </div>
-            </div>
+            <a class="bookCard" href="/P4-TomTroc/public/book/<?= $book['id'] ?>">
+                    <div class="bookImageContainer">
+                        <img src="<?= $book['image'] ?>" alt="Couverture du livre <?= $book['title'] ?>">
+                    </div>
+                    <div class="bookDescription">
+                        <h3><?= $book['title'] ?></h3>
+                        <h4><?= $book['writer'] ?></h4>
+                        <p><strong>Vendu par :</strong> <?= $book['user_nickname'] ?></p>
+                    </div>
+            </a>
         <?php endforeach; ?>
     </div>
     <a class="button green-button" href="/P4-TomTroc/public/books">Voir tous les livres</a>
