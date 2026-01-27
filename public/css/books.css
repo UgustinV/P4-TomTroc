@@ -31,6 +31,10 @@
     border: 1px solid var(--formBackground);
 }
 
+#book-search-form>label {
+    display: none;
+}
+
 #book-search-form>input {
     width: 250px;
     padding: 0 10px;

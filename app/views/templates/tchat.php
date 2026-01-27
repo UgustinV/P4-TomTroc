@@ -53,8 +53,8 @@
                     <?php endforeach; ?>
                 </div>
                 <form id="tchat-form" method="post" action="<?= BASE_URL ?>tchat/<?= $user->getId() ?>">
-                    <input type="hidden" name="tchat_room_id" value="<?= $tchatRoomId ?>">
-                    <input name="message" placeholder="Tapez votre message ici..." required>
+                    <input type="hidden" name="tchat_room_id" aria-label="Identifiant de la salle de discussion" value="<?= $tchatRoomId ?>">
+                    <input name="message" aria-label="Zone de saisie de message" placeholder="Tapez votre message ici..." required>
                     <button type="submit">Envoyer</button>
                 </form>
             </div>

@@ -3,7 +3,7 @@
         <h1>Nos Livres à l'échange</h1>
         <form id="book-search-form" method="GET" action="<?= BASE_URL ?>books">
             <img src="<?= BASE_URL ?>images/magnifier.svg" alt="Icône de recherche">
-            <input type="text" name="search" placeholder="Rechercher un livre" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
+            <input aria-label="Recherche" type="text" name="search" placeholder="Rechercher un livre" value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
         </form>
     </div>
     <div id="books-container">
