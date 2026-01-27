@@ -6,6 +6,10 @@
     height: calc(100vh - 80px - 60px);
 }
 
+#tchat-page>input, #tchat-page>label {
+    display: none;
+}
+
 #tchat-rooms {
     width: 20%;
     box-sizing: border-box;
@@ -192,9 +196,8 @@
 @media (max-width: 1000px) {
     #tchat-page {
         flex-direction: column;
-        padding-left: 20px;
-        padding-right: 20px;
-        height: auto;
+        padding: 0;
+        background-color: var(--backgroundLight);
     }
 
     #tchat-rooms {
@@ -203,9 +206,36 @@
         margin-bottom: 20px;
     }
 
+    #tchat-rooms>.tchatRoom {
+        background-color: transparent;
+        border-bottom: solid 1px white;
+    }
+
+    #tchat-page>input, #tchat-toggle:not(:checked) ~ label, #tchat-toggle, #tchat-toggle:checked ~ #tchat-rooms, #tchat-window {
+        display: none;
+    }
+
+    #tchat-toggle:checked ~ #tchat-window, #tchat-toggle:checked ~ label {
+        display: flex;
+    }
+
+    #tchat-page>label {
+        display: flex;
+        flex-direction: row;
+        font-size: 12px;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 20px;
+        color: var(--greyText);
+    }
+
+    #current-tchat-profile {
+        padding: 0;
+    }
+
     #tchat-window {
         width: 100%;
-        padding-left: 0;
+        padding: 0 20px;
     }
 
     #tchat-form input, #tchat-form button {

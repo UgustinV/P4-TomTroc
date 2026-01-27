@@ -1,5 +1,10 @@
 <div id="tchat-page">
     <?php if (!empty($rooms)): ?>
+        <input type="checkbox" id="tchat-toggle" class="mobile-only" <?= isset($user) ? 'checked' : '' ?>>
+        <label for="tchat-toggle">
+            <img src="<?= BASE_URL ?>images/back-arrow.svg" alt="Flèche de retour" class="mobile-only back-arrow">
+            <p>retour</p>
+        </label>
         <div id="tchat-rooms">
             <h1>Messagerie</h1>
             <?php foreach ($rooms as $index => $room):
