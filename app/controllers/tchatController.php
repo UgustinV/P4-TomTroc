@@ -44,7 +44,7 @@ class TchatController extends Controller
                 $latestId = $messageModel->createMessage($content, $tchatRoom->getId(), $currentUserId);
                 $tchatModel->updateLatestMessage($tchatRoom->getId(), $latestId);
 
-                header('Location: ' . BASE_URL . 'tchat/{$otherUserId}');
+                header('Location: ' . BASE_URL . 'tchat/' . $otherUserId);
             }
             else {
                 $rooms = $tchatModel->getAllTchatRoomsForUser($currentUserId);
