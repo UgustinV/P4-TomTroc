@@ -169,6 +169,11 @@
         width: 100%;
     }
 
+    .book-image-container>img {
+        width: 160px;
+        height: 160px;
+    }
+
     .book-info>h2 {
         font-size: 13px;
         margin-bottom: 8px;

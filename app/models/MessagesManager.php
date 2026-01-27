@@ -10,6 +10,7 @@ class MessagesManager extends AbstractEntityManager
             WHERE tchat_room_id = ?
             ORDER BY date DESC
         ";
+        $tchatRoomId = filter_var($tchatRoomId, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$tchatRoomId]);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -27,6 +28,7 @@ class MessagesManager extends AbstractEntityManager
             FROM messages
             WHERE id = ?
         ";
+        $messageId = filter_var($messageId, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$messageId]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -39,6 +41,7 @@ class MessagesManager extends AbstractEntityManager
 
     private function getLastInsertId($tchatRoomId): ?int
     {
+        $tchatRoomId = filter_var($tchatRoomId, FILTER_SANITIZE_NUMBER_INT);
         $roomManager = new TchatRoomManager();
         $room = $roomManager->getUserTchatRoomById($tchatRoomId);
         if ($room === null) {
@@ -62,6 +65,9 @@ class MessagesManager extends AbstractEntityManager
             INSERT INTO messages (content, tchat_room_id, user_id, date)
             VALUES (?, ?, ?, NOW())
         ";
+        $content = htmlspecialchars($content);
+        $tchatRoomId = filter_var($tchatRoomId, FILTER_SANITIZE_NUMBER_INT);
+        $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
         $this->db->query($query, [$content, $tchatRoomId, $userId]);
         return $this->getLastInsertId($tchatRoomId);
     }
@@ -75,6 +81,8 @@ class MessagesManager extends AbstractEntityManager
             AND user_id != ? 
             AND message_read = 0
         ";
+        $tchatRoomId = filter_var($tchatRoomId, FILTER_SANITIZE_NUMBER_INT);
+        $currentUserId = filter_var($currentUserId, FILTER_SANITIZE_NUMBER_INT);
         $this->db->query($query, [$tchatRoomId, $currentUserId]);
     }
 
@@ -88,6 +96,7 @@ class MessagesManager extends AbstractEntityManager
             AND m.user_id != ?
             AND m.message_read = 0
         ";
+        $currentUserId = filter_var($currentUserId, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$currentUserId, $currentUserId, $currentUserId]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         return (int)$data['total_unread'];

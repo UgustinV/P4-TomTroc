@@ -3,10 +3,10 @@
     <div id="user-section">
         <div id="user-info">
             <div id="user-image-container">
-                <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="">
+                <img src="<?= $user->getImage() ?>" alt="">
                 <label for="image">modifier</label>
             </div>
-            <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
+            <h2><?= $user->getNickname() ?></h2>
             <?php
                 if ($user->getCreationDate()) {
                     $creation_date = new DateTime($user->getCreationDate());
@@ -47,7 +47,7 @@
                 <form action="<?= BASE_URL ?>account" method="POST" enctype="multipart/form-data">
                     <div class="input-field">
                         <label for="email">Adresse email</label>
-                        <input type="email" id="email" name="email" value="<?= htmlspecialchars($user->getEmail()) ?>" required>
+                        <input type="email" id="email" name="email" value="<?= $user->getEmail() ?>" required>
                     </div>
                     <div class="input-field">
                         <label for="password">Mot de passe</label>
@@ -55,7 +55,7 @@
                     </div>
                     <div class="input-field">
                         <label for="nickname">Pseudo :</label>
-                        <input type="text" id="nickname" name="nickname" value="<?= htmlspecialchars($user->getNickname()) ?>" required>
+                        <input type="text" id="nickname" name="nickname" value="<?= $user->getNickname() ?>" required>
                     </div>
                     <input type="file" id="image" name="image" accept="image/*">
                     <button type="submit">Enregistrer</button>
@@ -75,16 +75,16 @@
         <?php foreach ($books as $book): ?>
             <div class="book-row">
                 <div class="book-photo">
-                    <img src="<?= htmlspecialchars($book["image"]) ?>" alt="">
+                    <img src="<?= $book["image"] ?>" alt="">
                 </div>
                 <div class="book-title">
-                    <p><?= htmlspecialchars($book["title"]) ?></p>
+                    <p><?= $book["title"] ?></p>
                 </div>
                 <div class="book-writer">
-                    <p><?= htmlspecialchars($book["writer"]) ?></p>
+                    <p><?= $book["writer"] ?></p>
                 </div>
                 <div class="book-description">
-                    <p><?= htmlspecialchars($book["description"]) ?></p>
+                    <p><?= $book["description"] ?></p>
                 </div>
                 <div class="book-availability">
                     <?php if ($book["is_available"]): ?>
@@ -92,6 +92,32 @@
                     <?php else: ?>
                         <span class="unavailable">non dispo.</span>
                     <?php endif; ?>
+                </div>
+                <div class="book-action">
+                    <a href="<?= BASE_URL ?>editBook/<?= $book["id"] ?>">Éditer</a>
+                    <a href="<?= BASE_URL ?>delete/<?= $book["id"] ?>">Supprimer</a>
+                </div>
+            </div>
+            <div class="book-mobile-row">
+                <div class="photo-title-available">
+                    <div class="book-photo">
+                        <img src="<?= $book["image"] ?>" alt="">
+                    </div>
+                    <div class="title-available">
+                        <div class="book-title">
+                            <p><?= $book["title"] ?></p>
+                        </div>
+                        <div class="book-availability">
+                            <?php if ($book["is_available"]): ?>
+                                <span class="available">disponible</span>
+                            <?php else: ?>
+                                <span class="unavailable">non dispo.</span>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p><?= $book["description"] ?></p>
                 </div>
                 <div class="book-action">
                     <a href="<?= BASE_URL ?>editBook/<?= $book["id"] ?>">Éditer</a>

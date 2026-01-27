@@ -114,12 +114,17 @@ form button {
         flex-direction: column;
         justify-content: unset;
         align-items: center;
+        padding-top: 80px;
     }
 
     #login-form {
         width: 100%;
         margin: 0 0 100px 0;
         padding: 0 20px;
+    }
+
+    #login-form form {
+        width: 100%;
     }
 
     #login-page > div:last-child {

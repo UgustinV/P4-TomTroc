@@ -1,9 +1,9 @@
 <div id="user-profile">
     <div id="user-info">
         <div id="user-image-container">
-            <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="">
+            <img src="<?= $user->getImage() ?>" alt="">
         </div>
-        <h2><?= htmlspecialchars($user->getNickname()) ?></h2>
+        <h2><?= $user->getNickname() ?></h2>
         <?php
             if ($user->getCreationDate()) {
                 $creation_date = new DateTime($user->getCreationDate());
@@ -51,16 +51,16 @@
         <?php foreach ($books as $book): ?>
             <a class="book-row" href="<?= BASE_URL ?>book/<?= $book["id"] ?>">
                 <div class="book-photo">
-                    <img src="<?= htmlspecialchars($book["image"]) ?>" alt="">
+                    <img src="<?= $book["image"] ?>" alt="">
                 </div>
                 <div class="book-title">
-                    <p><?= htmlspecialchars($book["title"]) ?></p>
+                    <p><?= $book["title"] ?></p>
                 </div>
                 <div class="book-writer">
-                    <p><?= htmlspecialchars($book["writer"]) ?></p>
+                    <p><?= $book["writer"] ?></p>
                 </div>
                 <div class="book-description">
-                    <p><?= htmlspecialchars($book["description"]) ?></p>
+                    <p><?= $book["description"] ?></p>
                 </div>
             </a>
         <?php endforeach; ?>

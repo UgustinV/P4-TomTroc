@@ -187,6 +187,10 @@
     object-fit: cover;
 }
 
+#user-books>.book-mobile-row {
+    display: none;
+}
+
 .book-row {
     max-height: calc(7vw + 50px);
 }
@@ -216,4 +220,43 @@
     line-clamp: 4;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
+}
+
+@media (max-width: 1200px) {
+    #account-page {
+        padding: 80px 20px;
+    }
+
+    #user-section {
+        flex-direction: column;
+    }
+
+    #profile-edit-container button {
+        width: 100%;
+    }
+
+    #user-books>#table-header {
+        display: none;
+    }
+
+    #account-page>#user-books>.book-row {
+        display: none;
+    }
+
+    #user-books>.book-mobile-row  {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        border-radius: 20px;
+    }
+
+    .book-mobile-row>.photo-title-available {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+    }
+
+
 }

@@ -4,26 +4,26 @@
         <a href="<?= BASE_URL ?>books">retour</a>
     </div>
     <h1>Modifier les informations</h1>
-    <form action="<?= BASE_URL ?>editBook/<?= htmlspecialchars($book->getId()) ?>" method="POST" enctype="multipart/form-data">
+    <form action="<?= BASE_URL ?>editBook/<?= $book->getId() ?>" method="POST" enctype="multipart/form-data">
         <?php if (isset($errors) && !empty($errors)): ?>
             <div class="errors">
                 <?php foreach ($errors as $error): ?>
-                    <p><?= htmlspecialchars($error) ?></p>
+                    <p><?= $error ?></p>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>
         <div id="form-fields">
             <div>
                 <label for="title">Titre</label>
-                <input class="input" type="text" id="title" name="title" required value="<?= htmlspecialchars($book->getTitle()) ?>">
+                <input class="input" type="text" id="title" name="title" required value="<?= $book->getTitle() ?>">
             </div>
             <div>
                 <label for="writer">Auteur</label>
-                <input class="input" type="text" id="writer" name="writer" required value="<?= htmlspecialchars($book->getWriter()) ?>">
+                <input class="input" type="text" id="writer" name="writer" required value="<?= $book->getWriter() ?>">
             </div>
             <div>
                 <label for="description">Commentaire</label>
-                <textarea id="description" name="description" required><?= htmlspecialchars($book->getDescription()) ?></textarea>
+                <textarea id="description" name="description" required><?= $book->getDescription() ?></textarea>
             </div>
             <div>
                 <label for="availability">Disponibilité</label>
@@ -37,7 +37,7 @@
         <div id="image-input">
             <p>Photo</p>
             <div id="image-field">
-                <img src="<?= htmlspecialchars($book->getImage()) ?>" alt="Image du livre">
+                <img src="<?= $book->getImage() ?>" alt="Image du livre">
                 <label for="image-import">
                     Modifier la photo
                 </label>

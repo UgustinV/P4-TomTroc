@@ -35,7 +35,7 @@ class TchatController extends Controller
         else {
             $currentUserId = $_SESSION['user']->getId();
             if($_SERVER['REQUEST_METHOD'] === 'POST'){
-                $content = htmlspecialchars($_POST['message']);
+                $content = $_POST['message'];
                 $tchatRoom = $tchatModel->getUserTchatRoom($currentUserId, $otherUserId);
                 if($tchatRoom === null) {
                     $tchatModel->createTchatRoom($currentUserId, $otherUserId, null);

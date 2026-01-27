@@ -9,6 +9,8 @@ class TchatRoomManager extends AbstractEntityManager
             FROM tchat
             WHERE (user1 IN (?, ?)) AND (user2 IN (?, ?))
         ";
+        $user1 = filter_var($user1, FILTER_SANITIZE_NUMBER_INT);
+        $user2 = filter_var($user2, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$user1, $user2, $user1, $user2]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -26,6 +28,7 @@ class TchatRoomManager extends AbstractEntityManager
             FROM tchat
             WHERE user1 = ? OR user2 = ?
         ";
+        $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$userId, $userId]);
         $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -48,6 +51,7 @@ class TchatRoomManager extends AbstractEntityManager
             ORDER BY latest_message DESC
             LIMIT 1
         ";
+        $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$userId, $userId]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
         if(!empty($data)) {
@@ -64,6 +68,7 @@ class TchatRoomManager extends AbstractEntityManager
             FROM tchat
             WHERE id = ?
         ";
+        $tchatRoomId = filter_var($tchatRoomId, FILTER_SANITIZE_NUMBER_INT);
         $stmt = $this->db->query($query, [$tchatRoomId]);
         $data = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -80,6 +85,9 @@ class TchatRoomManager extends AbstractEntityManager
             INSERT INTO tchat (user1, user2, latest_message)
             VALUES (?, ?, ?)
         ";
+        $user1 = filter_var($user1, FILTER_SANITIZE_NUMBER_INT);
+        $user2 = filter_var($user2, FILTER_SANITIZE_NUMBER_INT);
+        $latestMessage = $latestMessage !== null ? filter_var($latestMessage, FILTER_SANITIZE_NUMBER_INT) : null;
         $this->db->query($query, [$user1, $user2, $latestMessage]);
     }
 
@@ -90,6 +98,8 @@ class TchatRoomManager extends AbstractEntityManager
             SET latest_message = ?
             WHERE id = ?
         ";
+        $tchatRoomId = filter_var($tchatRoomId, FILTER_SANITIZE_NUMBER_INT);
+        $latestMessage = filter_var($latestMessage, FILTER_SANITIZE_NUMBER_INT);
         $this->db->query($query, [$latestMessage, $tchatRoomId]);
     }
 }

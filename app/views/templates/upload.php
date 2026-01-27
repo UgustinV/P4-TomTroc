@@ -4,7 +4,7 @@
         <?php if (isset($errors) && !empty($errors)): ?>
             <div class="errors">
                 <?php foreach ($errors as $error): ?>
-                    <p><?= htmlspecialchars($error) ?></p>
+                    <p><?= $error ?></p>
                 <?php endforeach; ?>
             </div>
         <?php endif; ?>

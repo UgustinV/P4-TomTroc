@@ -101,3 +101,34 @@
     text-align: center;
     margin-bottom: 80px;
 }
+
+@media (max-width: 768px) {
+    #book-details {
+        flex-direction: column;
+    }
+
+    #breadcrumb {
+        display: none;
+    }
+
+    #book-details img,
+    #details {
+        width: 100%;
+    }
+
+    #title-name h1 {
+        font-size: 6vw;
+    }
+
+    #title-name h2 {
+        font-size: 4vw;
+    }
+
+    #details>p {
+        font-size: 3vw;
+    }
+
+    #details>a:last-child {
+        font-size: 4vw;
+    }
+}
