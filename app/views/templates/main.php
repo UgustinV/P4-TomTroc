@@ -105,8 +105,9 @@
                         </a>
                         <a id="tchat-link" href="' . BASE_URL . 'tchat"' . ($title == 'TomTroc - Tchat' ? 'class="focus"' : '') . '>
                             <img src="' . BASE_URL . 'images/tchat-icon.svg" alt="Messagerie">
-                            <p>Messagerie</p><p>' . ($data['unreadMessagesCount'] > 0 ? $data['unreadMessagesCount'] : '') . '</p>
-                        </a>
+                            <p>Messagerie</p>'
+                            . ($data['unreadMessagesCount'] > 0 ? '<p>' . $data['unreadMessagesCount'] . '</p>' : '') .
+                        '</a>
                         <a id="account-link" href="' . BASE_URL . 'account"' . ($title == 'TomTroc - Account' ? 'class="focus"' : '') . '>
                             <img src="' . BASE_URL . 'images/account-icon.svg" alt="Mon Compte">
                             <p>Mon Compte</p>

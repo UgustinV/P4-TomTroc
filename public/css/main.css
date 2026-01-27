@@ -72,6 +72,14 @@ nav > input, nav > label {
     gap: 5px;
 }
 
+#tchat-link>p:nth-child(3) {
+    color: var(--backgroundLight);
+    background-color: var(--darkGrey);
+    padding: 3px 4px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
 nav a {
     text-decoration: none;
     color: var(--darkGrey);
