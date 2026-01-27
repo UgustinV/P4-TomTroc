@@ -36,6 +36,9 @@
             case 'TomTroc - UserProfile':
                 $cssFiles[] = 'userProfile.css';
                 break;
+            case 'TomTroc - 404':
+                $cssFiles[] = 'error404.css';
+                break;
         }
 
         foreach ($cssFiles as $cssFile) {
