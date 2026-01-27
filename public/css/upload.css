@@ -128,7 +128,7 @@ form label {
 
 @media (max-width: 1000px) {
     #upload-page {
-        margin: 0;
+        padding: 0;
     }
 
     #upload-page h1 {

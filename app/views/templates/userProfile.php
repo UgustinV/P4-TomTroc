@@ -63,6 +63,19 @@
                     <p><?= $book["description"] ?></p>
                 </div>
             </a>
+            <a class="book-mobile-row" href="<?= BASE_URL ?>book/<?= $book["id"] ?>">
+                <div class="photo-title">
+                    <div class="book-photo">
+                        <img src="<?= $book["image"] ?>" alt="">
+                    </div>
+                    <div class="book-title">
+                        <p><?= $book["title"] ?></p>
+                    </div>
+                </div>
+                <div class="book-description">
+                    <p><?= $book["description"] ?></p>
+                </div>
+            </a>
         <?php endforeach; ?>
     </div>
 </div>

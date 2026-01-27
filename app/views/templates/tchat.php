@@ -9,14 +9,14 @@
                 $isCurrentRoom = ($user && $user->getId() === $otherUserId);
             ?>
             <div class="tchatRoom <?= $isCurrentRoom ? 'current-room' : '' ?>">
-                <a href="<?= BASE_URL ?>tchat/<?= htmlspecialchars($otherUserId) ?>">
-                    <img src="<?= htmlspecialchars($otherUser->getImage()) ?>" alt="User profile">
+                <a href="<?= BASE_URL ?>tchat/<?=   $otherUserId ?>">
+                    <img src="<?= $otherUser->getImage() ?>" alt="User profile">
                     <div class="room-text">
                         <div class="room-text-header">
-                            <span><?= htmlspecialchars($otherUser->getNickname()) ?></span>
-                            <span><?= htmlspecialchars(date('H:i', strtotime($latestMessage->getDate()))) ?></span>
+                            <span><?= $otherUser->getNickname() ?></span>
+                            <span><?= date('H:i', strtotime($latestMessage->getDate())) ?></span>
                         </div>
-                        <span><?= htmlspecialchars($latestMessage->getContent()) ?></span>
+                        <span><?= $latestMessage->getContent() ?></span>
                     </div>
                 </a>
             </div>
@@ -28,8 +28,8 @@
     <?php if ($user): ?>
         <div id="tchat-window">
             <div id="current-tchat-profile">
-                <img src="<?= htmlspecialchars($user->getImage()) ?>" alt="<?= htmlspecialchars($user->getNickname()) ?>">
-                <span><?= htmlspecialchars($user->getNickname()) ?></span>
+                <img src="<?= $user->getImage() ?>" alt="<?= $user->getNickname() ?>">
+                <span><?= $user->getNickname() ?></span>
             </div>
             <div id="tchat">
                 <div id="tchat-messages">
@@ -39,16 +39,16 @@
                         <div class="<?= $isCurrentUser ? 'current-user-message' : 'other-user-message' ?>">
                             <div class="message-info">
                                 <?php if (!$isCurrentUser): ?>
-                                    <img src="<?= htmlspecialchars((new UserManager())->findById($message->getUserId())->getImage()) ?>" alt="">
+                                    <img src="<?= (new UserManager())->findById($message->getUserId())->getImage() ?>" alt="">
                                 <?php endif; ?>
-                                <span class="date"><?= htmlspecialchars(date('d:m H:i', strtotime($message->getDate()))) ?></span>
+                                <span class="date"><?= date('d:m H:i', strtotime($message->getDate())) ?></span>
                             </div>
-                            <span class="content"><?= htmlspecialchars($message->getContent()) ?></span>
+                            <span class="content"><?= $message->getContent() ?></span>
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <form id="tchat-form" method="post" action="<?= BASE_URL ?>tchat/<?= htmlspecialchars($user->getId()) ?>">
-                    <input type="hidden" name="tchat_room_id" value="<?= htmlspecialchars($tchatRoomId) ?>">
+                <form id="tchat-form" method="post" action="<?= BASE_URL ?>tchat/<?= $user->getId() ?>">
+                    <input type="hidden" name="tchat_room_id" value="<?= $tchatRoomId ?>">
                     <input name="message" placeholder="Tapez votre message ici..." required>
                     <button type="submit">Envoyer</button>
                 </form>

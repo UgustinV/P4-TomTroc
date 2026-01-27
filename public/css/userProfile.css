@@ -62,6 +62,13 @@
     font-weight: 400;
 }
 
+#send-message {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 30px 0;
+}
+
 #send-message>a {
     width: fit-content;
     padding: 22px 32px;
@@ -82,7 +89,6 @@
     align-items: center;
     justify-content: center;
     gap: 6px;
-    margin-bottom: 90px;
 }
 
 #books-count>img {
@@ -100,6 +106,10 @@
     flex-direction: column;
     background-color: white;
     border-radius: 20px;
+}
+
+#user-books>.book-mobile-row {
+    display: none;
 }
 
 #user-books>div, #user-books>.book-row {
@@ -185,4 +195,70 @@
 .book-row>.book-action>a:last-child {
     color: #CB2D2D;
     cursor: pointer;
+}
+
+@media (max-width: 1000px) {
+    #user-profile {
+        padding: 80px 20px;
+        flex-direction: column;
+    }
+
+    #user-profile>#user-books {
+        background-color: transparent;
+        gap: 20px;
+    }
+
+    #user-books>#table-header {
+        display: none;
+    }
+
+    #user-profile>#user-books>.book-row {
+        display: none;
+    }
+
+    #user-books>a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    #user-books>.book-mobile-row  {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        border-radius: 20px;
+        background-color: white;
+        padding: 50px;
+    }
+
+    .book-mobile-row>.photo-title {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .book-mobile-row>.photo-title>.book-photo img {
+        width: 80px;
+        height: 80px;
+        margin: 0;
+    }
+
+    .book-mobile-row>.photo-title>.book-title {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .book-mobile-row>.book-description p {
+        font-size: 14px;
+        line-height: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        line-clamp: 3;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
 }
