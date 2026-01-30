@@ -24,7 +24,7 @@ class Controller
         $content = $this->render($viewName, $data);
         $title = 'TomTroc - ' . ucfirst($viewName);
         ob_start();
-        require(MAIN_VIEW_PATH);
+        require('../app/views/templates/main.php');
         $template = ob_get_clean();
         echo $template;
     }

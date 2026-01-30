@@ -4,8 +4,6 @@
 Installer un logiciel comme XAMPP et cloner le git dans \xampp\htdocs (sous Windows)
 ### ENV
 Il faudra ensuite créer le fichier config.php dans le dossier config afin d'y mettre toutes les variables d'environnement :
-- TEMPLATE_VIEW_PATH : '../app/views/templates/'
-- MAIN_VIEW_PATH : pointe sur le main.php
 - DB_HOST
 - DB_NAME
 - DB_USER
